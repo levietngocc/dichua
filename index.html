@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chùa Hương 2026 - Chi Tiết Từng Bước</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;900&family=Patrick+Hand&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #F1F5F9;
+        }
+
+        h1,
+        h2,
+        .hand-font {
+            font-family: 'Patrick Hand', cursive;
+        }
+
+        /* Animation */
+        .card-enter {
+            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Timeline line connection */
+        .timeline-line {
+            position: absolute;
+            left: 28px;
+            top: 45px;
+            bottom: -20px;
+            width: 2px;
+            background: #CBD5E1;
+            z-index: 0;
+        }
+
+        .last-item .timeline-line {
+            display: none;
+        }
+
+        /* Custom scrollbar hide */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Tab Active State */
+        .tab-active {
+            background-color: #BE185D;
+            color: white;
+            box-shadow: 0 4px 12px rgba(190, 24, 93, 0.3);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+
+    <body class="pb-24">
+
+<header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-2xl border-b border-slate-200 pt-3 pb-2 px-4 shadow-md">
+    <div class="max-w-md mx-auto">
+        <div class="flex justify-between items-start mb-3">
+         <div class="flex flex-col">
+    <h1 class="text-lg font-extrabold text-slate-700 leading-none">
+        Đi chơi Chùa Hương <span class="text-pink-500 italic font-black">20’26</span>
+    </h1>
+</div>
+            
+            <div class="flex flex-col items-end gap-2">
+                <a href="tel:19001207" class="bg-red-500 text-white px-3 py-1 rounded-full text-[9px] font-black shadow-lg shadow-red-200 animate-pulse active:scale-95 transition-all flex items-center gap-1">
+                    🚨 SOS
+                </a>
+                
+                <div class="flex items-center gap-1">
+                    <div class="flex items-center bg-slate-100 border border-slate-200 rounded-lg px-2 py-1 shadow-inner">
+                        <span class="text-[10px]">👥</span>
+                        <input type="number" id="numPeople" value="1" min="1" oninput="calculateAll()" 
+                            class="w-8 text-center text-xs font-bold text-slate-700 bg-transparent outline-none">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase">Người</span>
+                    </div>
+
+             
+                </div>
+            </div>
+        </div>
+
+        <div class="flex bg-slate-100 p-1 rounded-2xl gap-1 border border-slate-200">
+            <button onclick="switchTab('bo', this)"
+                class="tab-btn flex-1 py-2.5 rounded-xl text-[11px] font-black transition-all tab-active text-white uppercase shadow-sm">
+                🥾 Đi Bộ
+            </button>
+            <button onclick="switchTab('cap', this)"
+                class="tab-btn flex-1 py-2.5 rounded-xl text-[11px] font-bold text-slate-500 transition-all uppercase">
+                🚠 Cáp Treo
+            </button>
+            <button onclick="switchTab('full', this)"
+                class="tab-btn flex-1 py-2.5 rounded-xl text-[11px] font-bold text-slate-500 transition-all uppercase">
+                🔥 3 Tuyến
+            </button>
+        </div>
+    </div>
+</header>
+    </div>
+        <main class="max-w-md mx-auto px-4 mt-[160px]">
+
+            <div id="tab-bo" class="tab-content space-y-0">
+                <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-green-100 card-enter mb-8">
+                    <h3 class="font-bold text-green-800 text-sm mb-3 flex items-center gap-2">💰 Dự tính phí (Team Đi
+                        Bộ)</h3>
+                    <div class="space-y-2 text-[11px] text-slate-600 border-b border-dashed pb-3">
+                        <div class="flex justify-between">
+                            <span>Vé + Đò (230k):</span>
+                            <span id="bo-ve"
+                                class="font-bold text-slate-800 underline decoration-green-200">230.000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Ăn sáng + vặt (~70k):</span>
+                            <span id="bo-an"
+                                class="font-bold text-slate-800 underline decoration-green-200">70.000đ</span>
+                        </div>
+
+                    </div>
+                    <div class="flex justify-between pt-3 font-black text-lg text-green-700 italic uppercase">
+                        <span>Tổng cộng:</span>
+                        <span id="bo-total" class="bg-green-50 px-2 rounded-lg">300.000đ</span>
+                    </div>
+                </div>
+
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">06:00</span>
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sáng</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div
+                            class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
+                                Ăn Sáng</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">🛵 Xuất phát & Nạp năng lượng</h3>
+
+                            <div class="space-y-3">
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-1.5 shrink-0"></div>
+                                    <p class="text-xs text-slate-600"><strong>Lộ trình:</strong> Chương Mỹ ➔ Ba Thá ➔ Tế
+                                        Tiêu ➔ Hương Sơn.</p>
+                                </div>
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-400 mt-1.5 shrink-0"></div>
+                                    <p class="text-xs text-slate-600"><strong>Ăn sáng:</strong> Dừng tại Vân Đình làm
+                                        bát
+                                        Phở/Bún (~35k). Ăn thật no để lấy sức leo bộ.</p>
+                                </div>
+                                <div
+                                    class="bg-yellow-50 p-3 rounded-2xl border border-yellow-100 flex gap-2 items-start">
+                                    <span class="text-xs">🎒</span>
+                                    <div class="text-[10px] text-yellow-900 leading-relaxed">
+                                        <strong>Checklist cuối:</strong> Giày thể thao cũ êm chân? 2 chai nước lọc? Áo
+                                        khoác
+                                        mỏng? Sạc dự phòng?
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter" style="animation-delay: 100ms">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">07:00</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🎟️</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">Thủ tục tại Bến</h3>
+
+                            <div class="space-y-3">
+                                <div class="flex gap-3 items-start bg-red-50 p-3 rounded-2xl border border-red-100">
+                                    <span class="text-xs bg-red-500 text-white px-1.5 rounded font-bold">CẢNH BÁO</span>
+                                    <p class="text-[11px] text-red-700 leading-tight"><strong>Tuyệt đối không dừng xe
+                                            theo
+                                            cò mồi vẫy dọc đường.</strong> Họ sẽ thu tiền gửi xe đắt và lèo lái mua vé
+                                        dịch
+                                        vụ ngoài.</p>
+                                </div>
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"></div>
+                                    <p class="text-xs text-slate-600"><strong>Gửi xe:</strong> Vào bãi biển <strong>"Ban
+                                            Tổ
+                                            Chức"</strong> ➔ <span class="font-bold text-green-600 uppercase">Miễn phí
+                                            100%</span>.</p>
+                                </div>
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"></div>
+                                    <p class="text-xs text-slate-600"><strong>Mua vé:</strong> Tại quầy niêm yết. Combo
+                                        <strong>230.000đ</strong> (Thắng cảnh + Đò).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter" style="animation-delay: 200ms">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">07:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🚣</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">Ngồi đò trên Suối Yến</h3>
+                            <p class="text-[10px] text-slate-400 mb-3 italic">Thời gian di chuyển: ~60 phút.</p>
+
+                            <div class="space-y-4 pl-3 border-l-2 border-slate-100">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-blue-500 ring-4 ring-white shadow-sm">
+                                    </div>
+                                    <strong class="text-xs block text-slate-800">Đền Trình (Ngũ Nhạc)</strong>
+                                    <span class="text-[10px] text-slate-500 block">Đò dừng 15p. Lên thắp hương trình
+                                        diện
+                                        Sơn Thần rồi đi tiếp.</span>
+                                </div>
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-slate-300 ring-4 ring-white shadow-sm">
+                                    </div>
+                                    <strong class="text-xs block text-slate-800">Check-in dọc suối</strong>
+                                    <span class="text-[10px] text-slate-500 block">Núi Mâm Xôi, Núi Con Gà, Cầu Hội.
+                                        Đứng
+                                        chụp ảnh cẩn thận kẻo ngã!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter" style="animation-delay: 300ms">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">08:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🛕</div>
+                            <h3 class="font-bold text-pink-700 text-sm mb-3">Cụm Chùa Thiên Trù</h3>
+
+                            <div class="space-y-3">
+                                <div class="flex gap-3 items-start">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"></div>
+                                    <p class="text-xs text-slate-600"><strong>Lễ Chính:</strong> Vào thắp hương ban Tam
+                                        Bảo
+                                        và Mẫu. Tranh thủ đi vệ sinh tại đây (khu này sạch nhất).</p>
+                                </div>
+                                <div
+                                    class="flex gap-3 items-start bg-purple-50 p-3 rounded-2xl border border-purple-100">
+                                    <span class="text-xs">✨</span>
+                                    <div>
+                                        <strong class="block text-xs text-purple-700">Điểm ẩn: Chùa Tiên Sơn</strong>
+                                        <span class="text-[10px] text-slate-500 leading-relaxed">Nằm bên phải Thiên Trù.
+                                            Có
+                                            tượng Phật tạc vào vách đá (Thạch Thế Tôn). Cực vắng và yên tĩnh.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">09:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🥾</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">Chinh phục 3 chặng Leo Bộ</h3>
+                            <p class="text-[11px] text-red-500 italic mb-4 font-bold">"Mệt đâu nghỉ đó, đừng cố quá!"
+                            </p>
+
+                            <div class="space-y-5 pl-3 border-l-2 border-dashed border-slate-200">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-green-500 ring-4 ring-white shadow-sm">
+                                    </div>
+                                    <strong class="text-xs block text-slate-800">Chặng 1: Chùa Giải Oan</strong>
+                                    <span class="text-[10px] text-slate-500 block">Cách 1km. Lễ Mẫu, rửa mặt giếng Long
+                                        Tuyền lấy may.</span>
+                                </div>
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-orange-400 ring-4 ring-white shadow-sm">
+                                    </div>
+                                    <strong class="text-xs block text-slate-800">Chặng 2: Am Phật Tích</strong>
+                                    <span class="text-[10px] text-slate-500 block">Dừng lại ngắm "Dấu chân Phật" tạc
+                                        trên
+                                        đá.</span>
+                                </div>
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-red-500 ring-4 ring-white shadow-sm">
+                                    </div>
+                                    <strong class="text-xs block text-slate-800">Chặng 3: Dốc Trò (Đỉnh)</strong>
+                                    <span class="text-[10px] text-slate-500 block">Đoạn khó nhất. Chạm cổng "Nam Thiên
+                                        Đệ
+                                        Nhất Động".</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">11:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">⛰️</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">Lễ Động Hương Tích</h3>
+                            <p class="text-[10px] text-slate-400 mb-3 italic">Xuống 120 bậc đá trơn.</p>
+
+                            <div class="grid grid-cols-1 gap-2">
+                                <div class="flex gap-3 bg-pink-50 p-2 rounded-xl border border-pink-100">
+                                    <span class="text-xs">🙏</span>
+                                    <p class="text-[10px] text-pink-900"><strong>Lễ ban chính:</strong> Phật Bà Quan Âm
+                                        Diệu
+                                        Thiện.</p>
+                                </div>
+                                <div class="flex gap-3 bg-blue-50 p-2 rounded-xl border border-blue-100">
+                                    <span class="text-xs">✨</span>
+                                    <p class="text-[10px] text-blue-900"><strong>Xin lộc:</strong> Xoa tay Núi Vàng, Núi
+                                        Bạc. Hứng nước thánh.</p>
+                                </div>
+                                <div
+                                    class="bg-red-50 p-2 rounded-xl border border-red-100 text-[10px] text-red-600 font-bold animate-pulse">
+                                    ⚠️ Cảnh giác móc túi: Luôn đeo ba lô ngược trước ngực!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">12:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div
+                            class="bg-orange-50 p-5 rounded-3xl shadow-sm border border-orange-100 relative overflow-hidden">
+                            <div class="absolute top-4 right-4 text-2xl">🍙</div>
+                            <h3 class="font-bold text-orange-800 text-sm mb-3">Tiệc Picnic Rừng Xanh</h3>
+
+                            <div class="space-y-3">
+                                <div>
+                                    <strong class="text-xs block text-orange-700">Vị trí:</strong>
+                                    <span class="text-[11px] text-slate-600">Tìm gốc cây mát hoặc ghế đá đoạn đường ra
+                                        khỏi
+                                        động.</span>
+                                </div>
+                                <div
+                                    class="bg-white/60 p-3 rounded-2xl text-[11px] text-orange-900 border border-orange-200">
+                                    <strong>Thực đơn nhà làm:</strong> Xôi nếp giò, bánh mì, dưa chuột, quả quýt. Ăn vừa
+                                    ngon vừa không lo bị "chặt chém" giá quán.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">13:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🛍️</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">Xuống núi & Sắm quà</h3>
+                            <p class="text-[10px] text-slate-400 mb-3 italic">Xuống núi nhanh hơn (mất 45p).</p>
+
+                            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                                <strong class="text-xs block text-slate-700 mb-2">🗨️ Script Mặc Cả Thông Minh:</strong>
+                                <div class="space-y-2">
+                                    <div
+                                        class="bg-white p-2 rounded-xl text-[10px] text-slate-600 border border-slate-100">
+                                        <strong>Rau Sắng:</strong> "Cô ơi 50k mớ này nhé, cháu lấy 2 mớ luôn." (Giá gốc
+                                        khoảng 80-100k).
+                                    </div>
+                                    <div
+                                        class="bg-white p-2 rounded-xl text-[10px] text-slate-600 border border-slate-100">
+                                        <strong>Bánh Củ Mài:</strong> "Lấy cháu hộp date mới nhất cô ơi." (Nhớ xem kỹ vỏ
+                                        hộp).
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">15:00</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-purple-50 p-5 rounded-3xl shadow-sm border border-purple-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">✨</div>
+                            <h3 class="font-bold text-purple-800 text-sm mb-3">Bonus: Chùa Thanh Sơn</h3>
+                            <p class="text-[11px] text-slate-600 mb-3 leading-relaxed">
+                                Đừng ra đò sớm! Ghé ngay <strong>Chùa Thanh Sơn - Hương Đài</strong> nằm ngay bến Thiên
+                                Trù.
+                            </p>
+                            <div class="bg-white/60 p-3 rounded-2xl border border-purple-200">
+                                <strong class="text-[10px] text-purple-700 block mb-1 uppercase">Tại sao nên
+                                    đi?</strong>
+                                <span class="text-[10px] text-slate-500">View hồ nước xanh biếc, hang động sâu mát lạnh,
+                                    vắng vẻ không chen chúc. Cực kỳ an nhiên trước khi kết thúc hành trình.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter last-item">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">16:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-slate-800 p-5 rounded-3xl shadow-xl border border-slate-600 text-white relative">
+                            <div class="absolute top-4 right-4 text-2xl">🏠</div>
+                            <h3 class="font-bold text-sm mb-3">Lên đò về bến Yến</h3>
+                            <div class="space-y-2">
+                                <p class="text-xs text-slate-300">- Nghỉ ngơi trên đò 60p, ngắm hoàng hôn suối Yến.</p>
+                                <p class="text-xs text-slate-300">- Tip lái đò: <strong>20k - 30k/người</strong> (tùy
+                                    tâm).
+                                </p>
+                                <div
+                                    class="bg-slate-700 p-2 rounded-xl text-[10px] text-center font-bold text-yellow-400">
+                                    VỀ ĐẾN NHÀ KHOẢNG 18:00 - KẾT THÚC MỘT NGÀY TRỌN VẸN!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-cap" class="tab-content hidden space-y-0">
+                <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-blue-100 card-enter mb-8">
+                    <h3 class="font-bold text-blue-800 text-sm mb-3 flex items-center gap-2">💰 Dự tính phí (Team Cáp
+                        Treo)
+                    </h3>
+                    <div class="space-y-2 text-[11px] text-slate-600 border-b border-dashed pb-3">
+                        <div class="flex justify-between"><span>Vé + Đò (230k):</span> <span id="cap-ve"
+                                class="font-bold text-slate-800">230.000đ</span></div>
+                        <div class="flex justify-between"><span>Cáp khứ hồi (260k):</span> <span id="cap-car"
+                                class="font-bold text-slate-800">260.000đ</span></div>
+                        <div class="flex justify-between"><span>Ăn quán (~150k):</span> <span id="cap-an"
+                                class="font-bold text-slate-800">150.000đ</span></div>
+                    </div>
+                    <div class="flex justify-between pt-3 font-black text-lg text-blue-700 italic uppercase">
+                        <span>Tổng cộng:</span>
+                        <span id="cap-total">640.000đ</span>
+                    </div>
+                </div>
+                <div class="relative flex gap-4 card-entry">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">06:00</span>
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sáng</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-slate-50 p-4 rounded-3xl border border-slate-200 border-dashed">
+                            <h3 class="font-bold text-slate-600 text-sm">🔄 Giai đoạn khởi động</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-2">
+                                Xuất phát ➔ Ăn sáng ➔ Gửi xe ➔ Đi đò ➔ Lễ Đền Trình ➔ Lễ Thiên Trù.
+                            </p>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-yellow-100 text-yellow-800 text-[10px] px-2 py-1 rounded font-bold border border-yellow-200">
+                                    💰 Chi phí: Vé + Đò = 230.000đ
+                                </span>
+                                <span class="text-[10px] text-slate-400 italic">(Xem chi tiết ở Tab Đi Bộ)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-entry" style="animation-delay: 100ms">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-blue-700">09:00</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-md border border-blue-100 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
+                                Quan Trọng</div>
+
+                            <h3 class="font-bold text-blue-800 text-sm mb-3 flex items-center gap-2">
+                                🚠 Mua Vé & Vào Ga (Thiên Trù)
+                            </h3>
+
+                            <div class="bg-yellow-50 p-3 rounded-xl border-l-4 border-yellow-400 mb-4 shadow-sm">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-xs font-bold text-slate-700">Người lớn (Khứ hồi):</span>
+                                    <span
+                                        class="text-sm font-black text-red-600 bg-white px-2 py-0.5 rounded border border-red-100 shadow-sm">260.000đ</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-slate-700">Trẻ em (Khứ hồi):</span>
+                                    <span
+                                        class="text-sm font-black text-red-600 bg-white px-2 py-0.5 rounded border border-red-100 shadow-sm">180.000đ</span>
+                                </div>
+                                <p class="text-[10px] text-slate-500 mt-2 italic border-t border-yellow-200 pt-1">
+                                    *Lưu ý: Mua vé 1 chiều rẻ hơn (160k) nhưng lúc về đi bộ sẽ mệt. Nên mua khứ hồi
+                                    luôn.
+                                </p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0">
+                                        1</div>
+                                    <div>
+                                        <strong class="block text-xs text-slate-700">Vị trí Ga:</strong>
+                                        <span class="text-xs text-slate-500">Đứng quay mặt vào chùa Thiên Trù -> Rẽ phải
+                                            đi
+                                            200m.</span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0">
+                                        2</div>
+                                    <div>
+                                        <strong class="block text-xs text-slate-700">Xếp hàng & Cabin:</strong>
+                                        <span class="text-xs text-slate-500">Cabin chứa 6 người. Đi mất 15 phút. Tha hồ
+                                            chụp
+                                            ảnh rừng mơ từ trên cao.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-entry" style="animation-delay: 200ms">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-blue-700">09:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-blue-100 relative">
+                            <h3 class="font-bold text-blue-800 text-sm mb-3">⛰️ Ga Hương Tích & Lễ Phật</h3>
+
+                            <div class="pl-3 border-l-2 border-dashed border-blue-200 space-y-4">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[19px] top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow">
+                                    </div>
+                                    <strong class="text-xs block text-slate-800">Từ Ga -> Động (10 phút đi bộ)</strong>
+                                    <span class="text-[10px] text-slate-500">Đường dốc thoải, dễ đi. Hai bên đường bán
+                                        nhiều
+                                        thuốc nam/quà lưu niệm (đừng mua vội, lúc về hãy mua).</span>
+                                </div>
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[19px] top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow">
+                                    </div>
+                                    <strong class="text-xs block text-slate-800">Vào Động Lễ Phật (60 phút)</strong>
+                                    <div class="bg-blue-50 p-2 rounded mt-1 text-[10px] text-slate-600">
+                                        <strong>Việc cần làm:</strong><br>
+                                        - Lễ ban chính (Phật Bà).<br>
+                                        - Xoa tay xin lộc "Cây Vàng - Cây Bạc".<br>
+                                        - Hứng giọt nước từ thạch nhũ (nước thánh).
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-entry" style="animation-delay: 300ms">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-blue-700">11:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-orange-50 p-5 rounded-3xl shadow-sm border border-orange-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🍗</div>
+                            <h3 class="font-bold text-orange-800 text-sm mb-3">Cáp Treo Xuống & Ăn Trưa</h3>
+
+                            <div class="space-y-3">
+                                <div class="bg-white/60 p-2 rounded-xl border border-orange-200">
+                                    <strong class="block text-xs text-orange-700 mb-1">Bước 1: Xuống núi</strong>
+                                    <span class="text-[10px] text-slate-600">Quay lại Ga Hương Tích, đưa vé chiều về để
+                                        đi
+                                        cáp xuống. (Nhớ kiểm tra vé đừng để mất).</span>
+                                </div>
+
+                                <div class="bg-white/60 p-2 rounded-xl border border-orange-200">
+                                    <strong class="block text-xs text-orange-700 mb-1">Bước 2: Ăn trưa tại Thiên
+                                        Trù</strong>
+                                    <ul class="list-disc list-inside text-[10px] text-slate-600">
+                                        <li><strong>Tiết kiệm:</strong> Tìm ghế đá sân chùa ăn Xôi/Bánh mì mang theo.
+                                        </li>
+                                        <li><strong>Sang chảnh:</strong> Vào nhà hàng (Quyết Thắng, Mai Lâm...).</li>
+                                    </ul>
+                                    <div
+                                        class="mt-2 inline-flex items-center gap-1 bg-red-100 text-red-600 px-2 py-0.5 rounded text-[10px] font-bold">
+                                        ⚠️ Hỏi giá trước khi gọi món!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-entry">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-purple-700">13:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div
+                            class="bg-white p-5 rounded-3xl shadow-sm border border-purple-100 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
+                                Bonus Trip</div>
+                            <h3 class="font-bold text-purple-800 text-sm mb-3">✨ Tuyến Phụ: Tuyết Sơn</h3>
+                            <p class="text-[10px] text-slate-500 mb-3">Vì đi cáp treo nên còn rất nhiều sức. Đừng về
+                                vội!
+                            </p>
+
+                            <div class="bg-purple-50 p-3 rounded-xl border border-purple-200 mb-3">
+                                <strong class="text-xs block text-purple-900 mb-1">Cách đi:</strong>
+                                <span class="text-[10px] text-slate-600">Ra bến đò Thiên Trù -> Thuê đò đi nhánh
+                                    <strong>Suối Tuyết</strong>.</span>
+                            </div>
+
+                            <div class="bg-yellow-50 p-3 rounded-xl border-l-4 border-yellow-400 shadow-sm">
+                                <strong class="block text-xs text-slate-700 mb-1">💰 Chi phí phát sinh (Thỏa
+                                    thuận):</strong>
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="text-sm font-black text-red-600 bg-white px-2 py-0.5 rounded border border-red-100 shadow-sm">~150k
+                                        - 200k</span>
+                                    <span class="text-[10px] text-slate-500">(Giá trọn gói cho cả đò/cả đoàn)</span>
+                                </div>
+                                <p class="text-[10px] text-slate-400 italic mt-1">*Tiền này trả trực tiếp cho lái đò.
+                                </p>
+                            </div>
+
+                            <ul class="mt-3 list-disc list-inside text-[10px] text-slate-600">
+                                <li>Suối Tuyết Sơn đẹp và vắng, chụp ảnh cực chill.</li>
+                                <li>Thăm Chùa Bảo Đài & Động Tuyết Sơn.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-entry last-item">
+                    <div class="timeline-line"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">16:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-slate-800 p-5 rounded-3xl shadow-sm border border-slate-600 text-white relative">
+                            <h3 class="font-bold text-sm mb-2">🏠 Kết thúc hành trình</h3>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-slate-600 px-2 py-0.5 rounded text-[10px]">Tip lái đò</span>
+                                <span class="text-xs font-bold text-yellow-400">20k-30k/người</span>
+                            </div>
+                            <p class="text-xs text-slate-300">Lên đò về bến Yến -> Lấy xe -> Về nhà an toàn.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="tab-full" class="tab-content hidden space-y-0">
+                <div
+                    class="bg-purple-900 p-5 rounded-3xl shadow-xl text-white card-enter mb-8 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 text-6xl opacity-10 font-black italic">$$</div>
+                    <h3 class="font-bold text-purple-200 text-sm mb-3 flex items-center gap-2">💰 Ngân sách (Team Oanh
+                        Tạc)
+                    </h3>
+                    <div class="space-y-2 text-[11px] opacity-90 border-b border-purple-700 pb-3">
+                        <div class="flex justify-between"><span>Vé + Đò (230k):</span> <span id="full-ve"
+                                class="font-bold text-yellow-300">230.000đ</span></div>
+                        <div class="flex justify-between"><span>Cáp 1 chiều (160k):</span> <span id="full-cap"
+                                class="font-bold text-yellow-300">160.000đ</span></div>
+                        <div class="flex justify-between"><span>Ăn uống tự túc (~50k):</span> <span id="full-an"
+                                class="font-bold text-yellow-300">50.000đ</span></div>
+                        <div class="flex justify-between font-bold text-orange-400 mt-1 uppercase"><span>Tiền Deal Đò
+                                (Đoàn):</span> <span>+ 350.000đ</span></div>
+                    </div>
+                    <div class="flex justify-between pt-3 font-black text-lg text-white italic uppercase">
+                        <span>Tổng cộng:</span>
+                        <span id="full-total">790.000đ</span>
+                    </div>
+                </div>
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">06:00</span>
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sáng</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div
+                            class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
+                                Ăn Sáng</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">🛵 Xuất phát & Nạp năng lượng</h3>
+                            <div class="space-y-2 text-xs text-slate-600 leading-relaxed">
+                                <p><strong>Lộ trình:</strong> Chương Mỹ ➔ Ba Thá ➔ Tế Tiêu ➔ Hương Sơn.</p>
+                                <p><strong>Ăn sáng:</strong> Dừng tại Vân Đình làm bát Phở/Bún (~35k). Ăn thật no để lấy
+                                    sức
+                                    leo bộ.</p>
+                                <div
+                                    class="bg-yellow-50 p-2 rounded-xl border border-yellow-100 text-[10px] text-yellow-800">
+                                    <strong>🎒 Checklist:</strong> Giày thể thao cũ? 2 nước lọc? Áo khoác mỏng? Sạc dự
+                                    phòng?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter" style="animation-delay: 100ms">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">07:00</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🎟️</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">Thủ tục tại Bến</h3>
+                            <div class="space-y-3">
+                                <div
+                                    class="bg-red-50 p-2.5 rounded-xl border border-red-100 text-[10px] text-red-600 font-bold uppercase">
+                                    ⚠️ CẢNH BÁO: Không dừng xe theo cò mồi vẫy dọc đường.
+                                </div>
+                                <div class="text-xs text-slate-600 leading-relaxed pl-1 space-y-1">
+                                    <p>• <strong>Gửi xe:</strong> Bãi "Ban Tổ Chức" ➔ <span
+                                            class="text-green-600 font-bold">Miễn phí 100%</span>.</p>
+                                    <p>• <strong>Mua vé:</strong> Tại quầy combo <span
+                                            class="price-tag">230.000đ</span>.
+                                    </p>
+                                </div>
+                                <div class="bg-purple-900 p-3 rounded-2xl text-white shadow-lg">
+                                    <strong class="text-[10px] text-purple-200 block mb-1 uppercase tracking-widest">🗣️
+                                        Deal đò 3 tuyến (Ngay tại đây)</strong>
+                                    <p class="text-[10px] italic opacity-90 leading-snug">"Chú ơi nhà cháu đi combo:
+                                        Hương
+                                        Tích + Long Vân + Tuyết Sơn. Ngoài vé cháu biếu thêm tiền công chèo cả ngày, chú
+                                        lấy
+                                        bao nhiêu?"</p>
+                                    <div class="mt-2 flex items-center justify-between">
+                                        <span class="text-[9px] font-bold">Giá deal thêm khuyên dùng:</span>
+                                        <span class="text-xs font-black text-yellow-400">~250k - 400k/đò</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter" style="animation-delay: 200ms">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">07:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🚣</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3">Ngồi đò trên Suối Yến</h3>
+                            <div class="space-y-3">
+                                <p class="text-[10px] text-slate-400 italic">⏱️ 60 phút di chuyển (Bao gồm lễ).</p>
+                                <div class="pl-3 border-l-2 border-purple-100 space-y-3">
+                                    <div>
+                                        <strong class="text-xs block text-slate-700">Đền Trình (Ngũ Nhạc)</strong>
+                                        <span class="text-[10px] text-slate-500">Đò dừng 15p. Thắp hương trình diện Sơn
+                                            Thần.</span>
+                                    </div>
+                                    <div class="bg-purple-50 p-2 rounded-xl">
+                                        <strong class="text-[10px] text-purple-700 block mb-0.5">🔍 Điểm nhỏ dọc
+                                            suối:</strong>
+                                        <span class="text-[10px] text-slate-500 leading-tight">Núi Mâm Xôi, Núi Con Gà,
+                                            Núi
+                                            Voi Phục. Đứng chụp ảnh tại <strong>Cầu Hội</strong> cẩn thận kẻo
+                                            ngã!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-purple-700">08:30</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">🏔️</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3 uppercase tracking-tighter">Tuyến 1: Động
+                                Hương
+                                Tích</h3>
+                            <div class="space-y-3">
+                                <div
+                                    class="bg-blue-50 p-2.5 rounded-xl border border-blue-100 flex items-center justify-between">
+                                    <span class="text-[10px] font-bold text-blue-800 uppercase">Đi Cáp Treo khứ
+                                        hồi</span>
+                                    <span class="price-tag text-blue-700">260.000đ</span>
+                                </div>
+                                <div class="text-[10px] text-slate-600 pl-1 space-y-1.5 leading-relaxed">
+                                    <p>📍 <strong>Chùa Thiên Trù:</strong> Lễ ban chính nhanh (15p) rồi rẽ phải vào Ga.
+                                    </p>
+                                    <p>📍 <strong>Chùa Tiên Sơn:</strong> Nằm ngay sườn núi sát Thiên Trù. Chỉ ghé nếu
+                                        vắng.
+                                    </p>
+                                    <p>📍 <strong>Trong Động:</strong> Lễ Phật Bà Quan Âm. Xoa tay vào <strong>Đụn
+                                            Gạo</strong> xin lộc ấm no.</p>
+                                </div>
+                                <div class="bg-red-600 p-2 rounded-xl text-center shadow-lg shadow-red-100">
+                                    <span class="text-[10px] font-black text-white uppercase tracking-widest">🕒
+                                        Deadline:
+                                        11:15 phải có mặt tại đò!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-orange-600">11:15</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-orange-50 p-4 rounded-3xl shadow-sm border border-orange-100 text-center">
+                            <h3 class="font-bold text-orange-800 text-sm mb-1 uppercase">🍙 Ăn trưa Chiến thuật</h3>
+                            <p class="text-[10px] text-slate-500 italic mb-2">⏱️ 30 phút ngồi đò (Thiên Trù ➔ Nhánh Long
+                                Vân)</p>
+                            <div
+                                class="bg-white/70 p-3 rounded-2xl text-[10px] text-orange-900 border border-orange-200 leading-relaxed font-medium">
+                                Nhà mình <strong>ăn xôi, giò, bánh mì ngay trên đò</strong>. Không dừng quán để dành 2
+                                tiếng
+                                leo 2 suối sau cực đẹp.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-purple-700">11:45</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div
+                            class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 bg-purple-100 text-purple-700 text-[9px] px-3 py-1 rounded-bl-xl font-black uppercase tracking-tighter">
+                                View đẹp nhất</div>
+                            <div class="absolute top-4 right-10 text-2xl opacity-20">☁️</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3 uppercase tracking-tighter">Tuyến 2: Động
+                                Long
+                                Vân</h3>
+                            <div class="space-y-4">
+                                <div class="bg-purple-50 p-3 rounded-2xl border border-purple-100">
+                                    <strong class="text-[10px] text-purple-800 block mb-1">📍 Động Long Vân:</strong>
+                                    <p class="text-[10px] text-slate-600 leading-relaxed font-medium">
+                                        Leo dốc thoai thoải 20p. Hang động cực rộng và mát lạnh. Cửa hang nhìn thẳng
+                                        xuống
+                                        cánh đồng lúa xanh ngắt ➔ Điểm chụp ảnh đẹp nhất cả ngày!
+                                    </p>
+                                </div>
+                                <div class="text-[10px] text-slate-500 border-l-2 border-purple-200 pl-3">
+                                    🔍 <strong>Chùa Long Vân:</strong> Nằm nép mình dưới tán cây cổ thụ ngay chân núi,
+                                    ghé
+                                    lễ 10p.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase">Transit</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div
+                            class="bg-slate-100 p-3 rounded-2xl border border-slate-200 text-center relative overflow-hidden">
+                            <div class="absolute inset-y-0 left-0 w-1 bg-blue-400"></div>
+                            <p class="text-[10px] text-slate-600 font-bold italic">
+                                ⏱️ 45 phút ngồi đò (Suối Long Vân ➔ Suối Tuyết)
+                            </p>
+                            <p class="text-[9px] text-slate-400 mt-1 uppercase tracking-tighter">Đoạn suối hẹp, rừng cây
+                                sát
+                                sạt, nước trong thấy đáy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-purple-700">14:15</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
+                            <div class="absolute top-4 right-4 text-2xl">❄️</div>
+                            <h3 class="font-bold text-slate-800 text-sm mb-3 uppercase tracking-tighter">Tuyến 3: Chùa
+                                Tuyết
+                                Sơn</h3>
+                            <div class="space-y-4">
+                                <div class="bg-blue-50/50 p-3 rounded-2xl border border-blue-100 space-y-3">
+                                    <div class="relative pl-3">
+                                        <div class="absolute left-0 top-1 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                                        <strong class="text-[10px] text-blue-800 block">Chùa Bảo Đài:</strong>
+                                        <p class="text-[10px] text-slate-500">Kiến trúc gỗ cổ nhất vùng. Không gian cực
+                                            kỳ
+                                            trang nghiêm.</p>
+                                    </div>
+                                    <div class="relative pl-3">
+                                        <div class="absolute left-0 top-1 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                                        <strong class="text-[10px] text-blue-800 block">Động Tuyết Sơn:</strong>
+                                        <p class="text-[10px] text-slate-500">Leo bộ nhẹ. Lễ tượng <strong>Phật
+                                                Lồi</strong>
+                                            linh thiêng (tượng tạc trực tiếp từ khối đá lộ thiên).</p>
+                                    </div>
+                                    <div class="relative pl-3">
+                                        <div class="absolute left-0 top-1 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                                        <strong class="text-[10px] text-blue-800 block">Am Cô:</strong>
+                                        <p class="text-[10px] text-slate-500">Ngôi miếu nhỏ giữa rừng cây, thanh tịnh vô
+                                            cùng.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">16:15</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-slate-50 p-4 rounded-3xl border border-slate-200 shadow-inner">
+                            <h3
+                                class="font-bold text-slate-700 text-sm uppercase tracking-widest flex items-center gap-2">
+                                🛶 Về bến Yến <span class="animate-bounce">🔚</span>
+                            </h3>
+                            <p class="text-[10px] text-slate-500 mt-1 italic leading-relaxed">
+                                ⏱️ 60 phút di chuyển đò. Lúc này hoàng hôn xuống Suối Yến cực đẹp. Cả nhà thong thả nghỉ
+                                chân, lọc ảnh chuẩn bị đăng Facebook/Tiktok.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-4 card-enter last-item">
+                    <div class="timeline-line border-purple-200"></div>
+                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
+                        <span class="block text-xl font-black text-slate-800">17:15</span>
+                    </div>
+                    <div class="flex-1 pb-8">
+                        <div class="bg-purple-900 p-6 rounded-3xl shadow-2xl text-white relative overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 text-8xl opacity-10 font-black">WIN</div>
+                            <h3 class="font-black text-sm mb-3 uppercase tracking-widest">🏁 Về đích an toàn</h3>
+                            <p class="text-[11px] text-purple-200 leading-relaxed mb-4">
+                                Bào sạch 3 tuyến kinh điển. Về nhà lấy xe, trên đường qua Vân Đình tạt vào ăn
+                                <strong>Cháo
+                                    se</strong> hoặc <strong>Vịt quay</strong> là hết sảy!
+                            </p>
+                            <div class="bg-purple-800/80 p-3 rounded-2xl border border-purple-700 shadow-inner">
+                                <span class="text-xs">💵</span>
+                                <strong class="text-[10px] text-yellow-400 uppercase ml-1">Thanh toán tiền công cho chú
+                                    lái
+                                    đò + Tip nhẹ!</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <dialog id="modal-gia" class="modal p-0 rounded-3xl backdrop:bg-slate-900/50">
+            <div class="bg-white p-6 w-80">
+                <h3 class="font-bold text-lg text-pink-700 mb-4 text-center">💰 Bảng Giá Gốc 2026</h3>
+                <div class="space-y-3 text-xs text-slate-600 font-bold">
+                    <div class="flex justify-between border-b border-dashed pb-2"><span>Vé + Đò</span> <span>230k</span>
+                    </div>
+                    <div class="flex justify-between border-b border-dashed pb-2"><span>Cáp Khứ Hồi</span>
+                        <span>260k</span>
+                    </div>
+                    <div class="flex justify-between border-b border-dashed pb-2"><span>Cáp 1 Chiều</span>
+                        <span>160k</span>
+                    </div>
+                    <div class="flex justify-between text-green-600 bg-green-50 p-2 rounded"><span>Gửi Xe (BTC)</span>
+                        <span>FREE</span>
+                    </div>
+                </div>
+                <form method="dialog" class="mt-6"><button
+                        class="w-full bg-slate-100 py-3 rounded-xl font-bold text-slate-600">Đóng</button></form>
+            </div>
+        </dialog>
+        <script>
+            // Hàm bật/tắt ngăn kéo tính tiền
+            function toggleBudget() {
+                const drawer = document.getElementById('budgetDrawer');
+                const overlay = document.getElementById('overlay');
+
+                if (drawer.classList.contains('translate-x-full')) {
+                    drawer.classList.remove('translate-x-full');
+                    overlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Khóa cuộn trang khi mở drawer
+                } else {
+                    drawer.classList.add('translate-x-full');
+                    overlay.classList.add('hidden');
+                    document.body.style.overflow = 'auto'; // Mở cuộn trang
+                }
+            }
+
+            // Chỉnh lại Main Margin-Top cho vừa với Header mỏng mới
+            // Bạn tìm thẻ <main> và sửa mt-36 thành mt-32 nhé!
+            function calculateAll() {
+                const n = parseInt(document.getElementById('numPeople').value) || 0;
+                const fmt = (val) => val.toLocaleString('vi-VN') + 'đ';
+
+                // 1. Team Đi Bộ
+                const veBo = 230000 * n;
+                const anBo = 70000 * n;
+                document.getElementById('bo-ve').innerText = fmt(veBo);
+                document.getElementById('bo-an').innerText = fmt(anBo);
+                document.getElementById('bo-total').innerText = fmt(veBo + anBo);
+
+                // 2. Team Cáp Treo
+                const veCap = 230000 * n;
+                const carCap = 260000 * n;
+                const anCap = 150000 * n;
+                document.getElementById('cap-ve').innerText = fmt(veCap);
+                document.getElementById('cap-car').innerText = fmt(carCap);
+                document.getElementById('cap-an').innerText = fmt(anCap);
+                document.getElementById('cap-total').innerText = fmt(veCap + carCap + anCap);
+
+                // 3. Team Bào 3 Tuyến
+                const veFull = 230000 * n;
+                const capFull = 160000 * n;
+                const anFull = 50000 * n;
+                const dealDo = 350000; // Tiền deal cố định theo đò
+                document.getElementById('full-ve').innerText = fmt(veFull);
+                document.getElementById('full-cap').innerText = fmt(capFull);
+                document.getElementById('full-an').innerText = fmt(anFull);
+                document.getElementById('full-total').innerText = fmt(veFull + capFull + anFull + dealDo);
+            }
+
+
+            function switchTab(tabId, btn) {
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+                document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+                document.querySelectorAll('button').forEach(b => {
+                    if (b.parentElement.classList.contains('bg-slate-100')) {
+                        b.classList.remove('tab-active');
+                        b.classList.remove('text-white');
+                        b.classList.add('text-slate-500');
+                    }
+                });
+                btn.classList.add('tab-active');
+                btn.classList.remove('text-slate-500');
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                calculateAll();
+            }
+        </script>
+    </body>
+
+</html>
