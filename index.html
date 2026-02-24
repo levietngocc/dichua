@@ -1,1129 +1,1344 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chùa Hương 2026 - Chi Tiết Từng Bước</title>
+    <title>Smart Parenting AI Platform</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;900&family=Patrick+Hand&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
         body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: #F1F5F9;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
         }
 
-        h1,
-        h2,
-        .hand-font {
-            font-family: 'Patrick Hand', cursive;
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            color: #a5b4fc;
         }
 
-        /* Animation */
-        .card-enter {
-            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-            transform: translateY(10px);
+        .sidebar-link:hover {
+            background-color: #1e293b;
+            color: #38bdf8;
+            border-right: 3px solid #38bdf8;
         }
 
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        pre {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #334155;
+            overflow-x: auto;
         }
 
-        /* Timeline line connection */
-        .timeline-line {
-            position: absolute;
-            left: 28px;
-            top: 45px;
-            bottom: -20px;
-            width: 2px;
-            background: #CBD5E1;
-            z-index: 0;
+        .highlight {
+            color: #f472b6;
+            font-weight: bold;
         }
 
-        .last-item .timeline-line {
-            display: none;
+        /* Pink for emphasis */
+        .comment {
+            color: #94a3b8;
+            font-style: italic;
         }
 
-        /* Custom scrollbar hide */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
 
-        /* Tab Active State */
-        .tab-active {
-            background-color: #BE185D;
-            color: white;
-            box-shadow: 0 4px 12px rgba(190, 24, 93, 0.3);
-            transform: scale(1.02);
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
         }
     </style>
 </head>
 
-<body>
+<body class="flex h-screen overflow-hidden">
 
-  <body class="pt-[190px]">
+    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col z-20">
+        <div class="p-6 border-b border-slate-800">
+            <h1 class="text-2xl font-black text-white tracking-tight">Smart Parenting AI Platform <span
+                    class="text-blue-500">AI</span>
+            </h1>
+        </div>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-4">
+    
+    <div class="px-6 py-2 text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-2 border-t border-slate-800 pt-4">
+        1. SYSTEM ARCHITECTURE
+    </div>
+    <a href="#overview" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
+        1.1 Architecture Modules
+    </a>
+    <a href="#interface-strategy" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
+        1.2 UI Strategy (3-in-1)
+    </a>
+    <div class="pl-10 pr-6 space-y-1 mt-1">
+        <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-blue-400">└─ 👴 Elderly Kiosk</a>
+        <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-green-400">└─ 🧑‍💼 Manager Dash</a>
+        <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-red-400">└─ 🛠️ Admin System</a>
+    </div>
+    <a href="#er-diagram" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors mt-1">
+        2.0 Entity Relations (ERD)
+    </a>
 
-<header
-    class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-2xl border-b border-slate-200 pt-3 pb-2 px-4 shadow-md">
+    <div class="px-6 py-2 text-[10px] font-bold text-yellow-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
+        3. DATABASE SCHEMAS
+    </div>
+    <a href="#database-detailed" class="block px-6 py-1.5 text-sm font-bold text-white bg-slate-800/50 border-l-2 border-yellow-500">
+        Overview
+    </a>
+    <div class="space-y-1 mt-1">
+        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-yellow-400">
+            A. Identity (User/Family)
+        </a>
+        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-green-400">
+            B. Medical (Meds/Logs)
+        </a>
+        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-purple-400">
+            C. AI Legacy (Memory)
+        </a>
+        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-red-400">
+            D. System (SOS/Noti)
+        </a>
+    </div>
 
-    <div class="max-w-md mx-auto">
+    <div class="px-6 py-2 text-[10px] font-bold text-green-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
+        IMPLEMENTATION
+    </div>
+    
+    <a href="#folder-structure" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800">
+        4.0 Folder Structure
+    </a>
 
-        <div class="flex justify-between items-start mb-3">
+    <div class="mt-2">
+        <a href="#api-list" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800">
+            5.0 API Specifications
+        </a>
+        <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
+            <a href="#api-list" class="block text-xs text-slate-500 hover:text-indigo-400 py-1">Type 1: AI Services</a>
+            <a href="#api-list" class="block text-xs text-slate-500 hover:text-green-400 py-1">Type 2: Medical Core</a>
+            <a href="#api-list" class="block text-xs text-slate-500 hover:text-blue-400 py-1">Type 3: Auth & Family</a>
+            <a href="#api-list" class="block text-xs text-slate-500 hover:text-red-400 py-1">Type 4: SOS Alerts</a>
+        </div>
+    </div>
 
-            <div class="flex flex-col">
-                <h1 class="text-lg font-extrabold text-slate-700 leading-none">
-                    Đi chơi Chùa Hương <span class="text-pink-500 italic font-black">20’26</span>
-                </h1>
-            </div>
+    <div class="mt-4 pb-10">
+        <a href="#tech-stack" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800">
+            6.0 Technology Stack
+        </a>
+        <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
+            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-blue-400 py-1">6.1 Frontend (React)</a>
+            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-green-400 py-1">6.2 Backend (Node)</a>
+            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-indigo-400 py-1">6.3 AI Core (Gemini)</a>
+            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-yellow-400 py-1">6.4 Database (Mongo)</a>
+        </div>
+    </div>
 
-            <div class="flex flex-col items-end gap-2">
+</nav>
+    </aside>
 
-                <a href="tel:19001207"
-                    class="bg-red-500 text-white px-3 py-1 rounded-full text-[9px] font-black shadow-lg shadow-red-200 animate-pulse active:scale-95 transition-all flex items-center gap-1">
-                    🚨 SOS
-                </a>
+    <main class="flex-1 overflow-y-auto scroll-smooth bg-slate-950 p-8 lg:p-12">
 
-                <div class="flex flex-col items-end pr-2">
+        <section id="overview" class="max-w-5xl mx-auto mb-20 space-y-16">
 
-                    <div
-                        class="flex items-center bg-white border border-slate-300 rounded-xl px-3 py-2 shadow-sm active:scale-95 transition">
+            <div>
+                <h2 class="text-3xl font-black text-white mb-8 flex items-center gap-3">
+                    <span class="bg-blue-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">1.1</span>
+                    Kiến trúc Hệ thống (System Architecture)
+                </h2>
 
-                        <span class="text-sm mr-1">👥</span>
+                <div class="space-y-8">
 
-                        <input type="number" id="numPeople" value="1" min="1" oninput="calculateAll()"
-                            class="w-12 text-center text-base font-semibold text-slate-700 bg-transparent outline-none">
+                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-blue-900/50">
+                        <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-4">
+                            <span class="text-3xl">💊</span>
+                            <div>
+                                <h3 class="text-blue-400 font-bold text-xl">Module 1: Medical Core (Lõi Y Tế)</h3>
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Ưu tiên cao nhất
+                                    (Critical)</p>
+                            </div>
+                        </div>
 
-                        <span class="text-xs font-semibold text-slate-400 ml-1">Người</span>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                                    <span class="text-green-400">✓</span> Hệ thống làm giúp gì?
+                                </h4>
+                                <ul class="space-y-3 text-slate-400 text-sm">
+                                    <li><strong>Tự động tính lịch:</strong> Người dùng nhập "Ngày 2 viên, sáng chiều".
+                                        Hệ thống tự tính ra giờ cụ thể (08:00, 18:00) cho cả tháng.</li>
+                                    <li><strong>Xử lý lịch phức tạp:</strong> Hỗ trợ các đơn thuốc khó nhớ như "Uống
+                                        cách ngày", "Chỉ uống thứ 2-4-6", "Uống trước ăn 30p".</li>
+                                    <li><strong>Quản lý kho:</strong> Tự trừ số lượng viên thuốc mỗi khi cụ bấm "Đã
+                                        uống". Cảnh báo khi thuốc sắp hết.</li>
+                                </ul>
+                            </div>
 
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-blue-200 font-bold mb-2 text-sm uppercase">🛠️ Dev cần làm gì?</h4>
+                                <ul class="space-y-2 text-slate-400 text-xs font-mono">
+                                    <li>- Thiết kế bảng `Schedules` có trường `recurrence` (lặp lại) linh hoạt.</li>
+                                    <li>- Viết Cron Job chạy mỗi phút để quét bảng `Schedules` -> Bắn thông báo.</li>
+                                    <li>- Viết Logic trừ kho: `inventory = inventory - dosage`.</li>
+                                    <li>- Viết API `POST /scan` nhận ảnh -> Gọi Gemini -> Parse JSON -> Lưu vào DB.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
-                    <p class="text-[10px] text-slate-400 mt-1 text-right">
-                        💡 Nhập số người — chi phí bên dưới sẽ tự động cập nhật
-                    </p>
+                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-purple-900/50">
+                        <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-4">
+                            <span class="text-3xl">🧠</span>
+                            <div>
+                                <h3 class="text-purple-400 font-bold text-xl">Module 2: AI Memory Core (Lõi Ký Ức)</h3>
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Tính năng Key
+                                    (Unique Selling Point)</p>
+                            </div>
+                        </div>
 
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                                    <span class="text-green-400">✓</span> Hệ thống làm giúp gì?
+                                </h4>
+                                <ul class="space-y-3 text-slate-400 text-sm">
+                                    <li><strong>Phỏng vấn chủ động:</strong> AI tự nghĩ ra câu hỏi dựa trên lịch sử trò
+                                        chuyện cũ (Context aware), không hỏi lặp lại.</li>
+                                    <li><strong>Biên tập viên ảo:</strong> Chuyển lời kể lan man, ngập ngừng của người
+                                        già thành văn bản gãy gọn, văn phong hoài niệm.</li>
+                                    <li><strong>Truy xuất ngữ nghĩa (RAG):</strong> Khi hỏi "Bà thích ăn gì?", AI tìm
+                                        trong hàng nghìn đoạn ghi âm để trả lời chính xác, chứ không bịa đặt.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-purple-200 font-bold mb-2 text-sm uppercase">🛠️ Dev cần làm gì?</h4>
+                                <ul class="space-y-2 text-slate-400 text-xs font-mono">
+                                    <li>- Tích hợp <strong>Pinecone/MongoDB Atlas</strong> để lưu Vector Embeddings.
+                                    </li>
+                                    <li>- Viết luồng: Audio -> Whisper API -> Text -> Gemini (Refine) -> Vector DB.</li>
+                                    <li>- Viết Prompt cho Gemini: "Đóng vai người cháu ngoan, hỏi chuyện bà về chủ đề
+                                        X".</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-green-900/50">
+                        <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-4">
+                            <span class="text-3xl">❤️</span>
+                            <div>
+                                <h3 class="text-green-400 font-bold text-xl">Module 3: Vital Core (Lõi Sức Khỏe)</h3>
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Xử lý dữ liệu lớn
+                                    (Big Data Scale)</p>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                                    <span class="text-green-400">✓</span> Hệ thống làm giúp gì?
+                                </h4>
+                                <ul class="space-y-3 text-slate-400 text-sm">
+                                    <li><strong>Nhận diện dinh dưỡng:</strong> Nhìn ảnh mâm cơm -> Biết ngay bao nhiêu
+                                        Calo, có mặn hay ngọt quá không (Vision AI).</li>
+                                    <li><strong>Phát hiện bất thường:</strong> Nếu nhịp tim tăng cao hoặc cụ không vận
+                                        động trong 12 tiếng -> Kích hoạt SOS.</li>
+                                    <li><strong>Báo cáo trực quan:</strong> Vẽ biểu đồ đường (Line chart) giúp bác sĩ
+                                        nhìn ra xu hướng bệnh.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-green-200 font-bold mb-2 text-sm uppercase">🛠️ Dev cần làm gì?</h4>
+                                <ul class="space-y-2 text-slate-400 text-xs font-mono">
+                                    <li>- Tích hợp thư viện Chart.js hoặc Recharts ở Frontend Manager.</li>
+                                    <li>- Viết API `POST /analyze-food` gửi ảnh lên Gemini Vision nhận JSON Calo.</li>
+                                    <li>- Logic Trigger: `IF (last_movement > 12h) THEN send_notification()`.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <section id="interface-strategy" class="max-w-5xl mx-auto mb-20 pt-12 border-t border-slate-800">
+
+                        <div class="mb-10">
+                            <h2 class="text-3xl font-black text-white mb-6">1.2. Đặc tả Chiến lược Giao diện (Detailed
+                                Interface Specification)</h2>
+                            <p class="text-slate-400 text-lg leading-relaxed">
+                                Hệ thống được kiến trúc theo mô hình <strong>Multi-Tenant Frontend</strong>. Dù sử dụng
+                                chung một cơ sở dữ liệu (Database) và Backend API, nhưng trải nghiệm người dùng được
+                                phân tách thành 03 không gian số (Digital Spaces) riêng biệt, được tối ưu hóa triệt để
+                                cho từng nhóm đối tượng.
+                            </p>
+                        </div>
+
+                        <div class="space-y-16">
+
+                            <div class="pl-8 border-l-4 border-blue-600 relative">
+                                <span
+                                    class="absolute -left-[26px] top-0 flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 border-4 border-blue-600 text-2xl">👴</span>
+
+                                <h3 class="text-2xl font-bold text-white mb-2">1. Phân hệ Kiosk cho Người Cao Tuổi (The
+                                    Elderly Interface)</h3>
+                                <div class="flex gap-4 text-xs font-mono text-blue-400 mb-6 uppercase tracking-wider">
+                                    <span>URL: /app/elderly</span>
+                                    <span>•</span>
+                                    <span>Auth: QR Token</span>
+                                    <span>•</span>
+                                    <span>View: Tablet Landscape</span>
+                                </div>
+
+                                <div class="space-y-6 text-slate-300">
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">A. Định hướng Trải
+                                            nghiệm (UX Direction)</h4>
+                                        <p class="text-sm leading-relaxed mb-2">
+                                            Giao diện này hoạt động như một thiết bị chuyên dụng (Appliance-like), không
+                                            giống một website thông thường. Mục tiêu tối thượng là
+                                            <strong>"Zero-Friction" (Không điểm gợn)</strong>. Người dùng không cần học
+                                            cách sử dụng; hệ thống sẽ tự động điều hướng họ.
+                                        </p>
+                                        <ul class="list-disc pl-5 text-sm text-slate-400 space-y-1">
+                                            <li><strong>Cơ chế "Wake Lock":</strong> Ngăn chặn màn hình thiết bị tự tắt,
+                                                đảm bảo giao diện luôn hiển thị 24/7.</li>
+                                            <li><strong>Cơ chế "Auto-Recovery":</strong> Nếu mất kết nối mạng, hệ thống
+                                                tự động lưu cache cục bộ (Service Worker) và đồng bộ lại khi có mạng,
+                                                đảm bảo tính năng nhắc thuốc không bị gián đoạn.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">B. Màn hình Chờ (Standby
+                                            Dashboard)</h4>
+                                        <p class="text-sm leading-relaxed">
+                                            Đây là trạng thái mặc định của thiết bị. Thiết kế sử dụng các khối thông tin
+                                            (Info Blocks) kích thước lớn, độ tương phản cao (High Contrast).
+                                            <br><strong>Các thành phần chính:</strong>
+                                            <br>- <strong>Đồng hồ Sinh học:</strong> Hiển thị giờ với font size >80px.
+                                            Background thay đổi màu sắc theo buổi (Sáng: Vàng nhạt / Tối: Xanh đậm) để
+                                            giúp người già định vị thời gian.
+                                            <br>- <strong>Nút Khẩn cấp (SOS Trigger):</strong> Nút vật lý ảo màu đỏ,
+                                            kích thước 120x120px ở góc màn hình. Logic kích hoạt bao gồm đếm ngược 5
+                                            giây để tránh báo động giả do chạm nhầm.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">C. Cơ chế Nhắc thuốc
+                                            (Critical Alert Modal)</h4>
+                                        <p class="text-sm leading-relaxed">
+                                            Khi đến giờ định sẵn (Trigger từ Cron Job), hệ thống kích hoạt chế độ "Báo
+                                            động ưu tiên" (Priority Alert):
+                                            <br>1. <strong>Overlay:</strong> Một lớp phủ đen mờ (Opacity 95%) che toàn
+                                            bộ các nội dung khác.
+                                            <br>2. <strong>Visual:</strong> Hiển thị ảnh chụp thực tế của vỉ thuốc/viên
+                                            thuốc cần uống (Lấy từ Database). Kích thước ảnh chiếm 40% màn hình.
+                                            <br>3. <strong>Audio:</strong> Hệ thống tự động phát âm thanh (TTS - Text to
+                                            Speech): <em>"Bà ơi, đến giờ uống thuốc tiểu đường rồi. Thuốc màu trắng,
+                                                hình tròn ạ."</em> Lặp lại 3 lần.
+                                            <br>4. <strong>Action:</strong> Chỉ hiển thị duy nhất một nút bấm lớn
+                                            <strong>"TÔI ĐÃ UỐNG"</strong>. Khi bấm, hệ thống ghi log thời gian thực và
+                                            tắt báo động.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pl-8 border-l-4 border-green-600 relative">
+                                <span
+                                    class="absolute -left-[26px] top-0 flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 border-4 border-green-600 text-2xl">🧑‍💼</span>
+
+                                <h3 class="text-2xl font-bold text-white mb-2">2. Phân hệ Quản lý cho Người Thân (Family
+                                    Dashboard)</h3>
+                                <div class="flex gap-4 text-xs font-mono text-green-400 mb-6 uppercase tracking-wider">
+                                    <span>URL: /app/manager</span>
+                                    <span>•</span>
+                                    <span>Auth: Email/Password</span>
+                                    <span>•</span>
+                                    <span>View: Responsive</span>
+                                </div>
+
+                                <div class="space-y-6 text-slate-300">
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">A. Định hướng Trải
+                                            nghiệm</h4>
+                                        <p class="text-sm leading-relaxed mb-2">
+                                            Đóng vai trò là "Trung tâm Kiểm soát" (Control Tower). Giao diện này tập
+                                            trung vào <strong>Dữ liệu (Data-Viz)</strong> và <strong>Cấu hình
+                                                (Configuration)</strong>. Người dùng là người trẻ, thành thạo công nghệ,
+                                            nên giao diện tuân theo chuẩn Dashboard hiện đại (như Vercel/Stripe
+                                            Dashboard).
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">B. Giám sát Thời gian
+                                            thực (Live Monitoring)</h4>
+                                        <p class="text-sm leading-relaxed">
+                                            Sử dụng kết nối <strong>Websocket (Socket.io)</strong> để đồng bộ trạng thái
+                                            tức thì giữa thiết bị của Cụ và máy của Con:
+                                            <br>- <strong>Heartbeat Check:</strong> Hiển thị trạng thái Online/Offline
+                                            và % Pin của thiết bị Cụ. Nếu mất kết nối quá 30 phút, hệ thống gửi cảnh
+                                            báo.
+                                            <br>- <strong>Adherence Chart:</strong> Biểu đồ trực quan (Chart.js) thể
+                                            hiện tỷ lệ tuân thủ uống thuốc trong tuần. Màu xanh (Đúng giờ), Vàng (Muộn),
+                                            Đỏ (Bỏ liều).
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">C. Quản lý Thuốc & AI
+                                            Scan (OCR Flow)</h4>
+                                        <p class="text-sm leading-relaxed">
+                                            Quy trình nhập liệu phức tạp được đơn giản hóa nhờ AI:
+                                            <br>1. <strong>Input:</strong> Người dùng tải lên ảnh chụp Đơn thuốc hoặc Vỏ
+                                            hộp thuốc.
+                                            <br>2. <strong>Process:</strong> Google Gemini Vision API phân tích ảnh,
+                                            trích xuất dữ liệu thô (JSON).
+                                            <br>3. <strong>Verification (Human-in-the-loop):</strong> Hệ thống hiển thị
+                                            form điền sẵn (Pre-filled Form). Người dùng chỉ cần kiểm tra lại và bấm "Xác
+                                            nhận".
+                                            <br>4. <strong>Sync:</strong> Ngay sau khi lưu, lịch uống thuốc mới sẽ được
+                                            đẩy xuống máy của Cụ trong < 1 giây. </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">D. Kho tàng Ký ức
+                                            (Memory Vault)</h4>
+                                        <p class="text-sm leading-relaxed">
+                                            Giao diện quản lý tài sản số (Digital Assets):
+                                            <br>- <strong>Gallery View:</strong> Hiển thị danh sách các file ghi âm dưới
+                                            dạng thẻ (Card), có gắn nhãn chủ đề (Tagging) do AI tự phân loại.
+                                            <br>- <strong>Legacy Chatbot:</strong> Một giao diện Chat (RAG Interface)
+                                            cho phép con cháu đặt câu hỏi. Hệ thống sử dụng Vector Search để tìm kiếm
+                                            trong kho dữ liệu ký ức và trả lời dựa trên ngữ cảnh thực tế của người già.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pl-8 border-l-4 border-red-600 relative">
+                                <span
+                                    class="absolute -left-[26px] top-0 flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 border-4 border-red-600 text-2xl">🛠️</span>
+
+                                <h3 class="text-2xl font-bold text-white mb-2">3. Phân hệ Quản trị Hệ thống (System
+                                    Admin)</h3>
+                                <div class="flex gap-4 text-xs font-mono text-red-400 mb-6 uppercase tracking-wider">
+                                    <span>URL: /admin</span>
+                                    <span>•</span>
+                                    <span>Auth: Admin Key</span>
+                                    <span>•</span>
+                                    <span>View: Desktop Only</span>
+                                </div>
+
+                                <div class="space-y-6 text-slate-300">
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">A. Quản trị Người dùng
+                                            (User Management)</h4>
+                                        <p class="text-sm leading-relaxed">
+                                            Dành cho Super Admin/Dev để vận hành.
+                                            <br>- Quản lý danh sách các Hộ gia đình (Tenants).
+                                            <br>- Cấp lại mã QR kết nối (trong trường hợp người dùng làm mất).
+                                            <br>- Theo dõi trạng thái hoạt động (Active/Inactive) của từng tài khoản.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-white font-bold text-sm uppercase mb-2">B. Giám sát Tài nguyên &
+                                            Chi phí (Resource Monitor)</h4>
+                                        <p class="text-sm leading-relaxed">
+                                            Do hệ thống sử dụng các API trả phí (Gemini, OpenAI Whisper), giao diện này
+                                            cực kỳ quan trọng để kiểm soát ngân sách:
+                                            <br>- <strong>Token Usage:</strong> Thống kê số lượng Token AI đã tiêu thụ
+                                            theo ngày/tuần.
+                                            <br>- <strong>Storage:</strong> Giám sát dung lượng lưu trữ (AWS S3) của các
+                                            file ghi âm và hình ảnh.
+                                            <br>- <strong>Error Logs:</strong> Danh sách lỗi kỹ thuật (Frontend/Backend)
+                                            để đội ngũ Dev kịp thời khắc phục (Debug).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <section id="interface-strategy" class="max-w-6xl mx-auto mb-20 space-y-16">
+                <section id="interface-strategy" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
+                    <section id="er-diagram" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
+                        <h2 class="text-3xl font-black text-white mb-8 flex items-center gap-3">
+                            <span
+                                class="bg-blue-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">2.0</span>
+                            Quan hệ Thực thể & Luồng Dữ liệu (Entity Relationships)
+                        </h2>
+
+                        <p class="text-slate-400 mb-8 text-lg">
+                            Hệ thống được thiết kế theo mô hình <strong>Domain-Driven Design (DDD)</strong>, tập trung
+                            vào 3 cụm dữ liệu chính: User Management, Medical Core và Digital Legacy.
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <div
+                                    class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl">🏠</span>
+                                    <div>
+                                        <strong class="text-white block text-sm">Family Group (1) ↔ (N) Users</strong>
+                                        <p class="text-xs text-slate-500">Một hộ gia đình chứa nhiều thành viên (1 Cụ +
+                                            N Con cháu). Dữ liệu được cô lập (isolate) theo FamilyID.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl">💊</span>
+                                    <div>
+                                        <strong class="text-white block text-sm">User (1) ↔ (N) Medications</strong>
+                                        <p class="text-xs text-slate-500">Mỗi cụ có một tủ thuốc riêng (Inventory).
+                                            Thuốc của cụ A không hiện bên cụ B.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl">⏰</span>
+                                    <div>
+                                        <strong class="text-blue-400 block text-sm">Medication (1) ↔ (N)
+                                            Schedules</strong>
+                                        <p class="text-xs text-slate-500">Một loại thuốc (VD: Panadol) có thể có nhiều
+                                            lịch uống (Sáng 1 viên, Tối 1 viên).</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl">📝</span>
+                                    <div>
+                                        <strong class="text-green-400 block text-sm">Schedule (1) ↔ (N) Consumption
+                                            Logs</strong>
+                                        <p class="text-xs text-slate-500">Quan trọng nhất: Lưu lịch sử uống. Mỗi lần đến
+                                            giờ uống -> Tạo 1 Log (Status: Taken/Missed).</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl">🧠</span>
+                                    <div>
+                                        <strong class="text-purple-400 block text-sm">User (1) ↔ (N) Memories</strong>
+                                        <p class="text-xs text-slate-500">Lưu trữ các đoạn hội thoại/hồi ký của người
+                                            già để huấn luyện AI Chatbot.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-slate-950 border border-slate-800 rounded-xl p-6 flex items-center justify-center">
+                                <div class="space-y-6 w-full font-mono text-xs">
+                                    <div class="text-slate-500 uppercase font-bold text-center mb-2">Data Flow Logic
+                                    </div>
+
+                                    <div class="flex justify-center">
+                                        <div
+                                            class="bg-blue-900/20 border border-blue-600 text-blue-400 px-4 py-2 rounded">
+                                            FAMILY (Root)</div>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <div class="h-4 w-px bg-slate-700"></div>
+                                    </div>
+                                    <div class="flex justify-center gap-8">
+                                        <div
+                                            class="bg-slate-800 border border-slate-600 text-slate-300 px-4 py-2 rounded">
+                                            Manager (Admin)</div>
+                                        <div
+                                            class="bg-green-900/20 border border-green-600 text-green-400 px-4 py-2 rounded">
+                                            Elderly (User)</div>
+                                    </div>
+                                    <div class="flex justify-center gap-8">
+                                        <div class="h-4 w-px bg-transparent"></div>
+                                        <div class="h-4 w-px bg-slate-700"></div>
+                                    </div>
+                                    <div class="flex justify-center gap-4">
+                                        <div class="bg-slate-900 border border-slate-700 p-3 rounded w-1/3">
+                                            <strong class="text-yellow-500 block mb-1">Medication</strong>
+                                            <span class="text-slate-500 block">Inventory</span>
+                                            <span class="text-slate-500 block">OCR Data</span>
+                                        </div>
+                                        <div class="bg-slate-900 border border-slate-700 p-3 rounded w-1/3">
+                                            <strong class="text-purple-500 block mb-1">Memories</strong>
+                                            <span class="text-slate-500 block">Audio URL</span>
+                                            <span class="text-slate-500 block">Vector Embed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                  <section id="database-detailed" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
+    
+    <div class="mb-10">
+        <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
+            <span class="bg-yellow-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-black">3.0</span>
+            Database Schema (Production Ready)
+        </h2>
+        <p class="text-slate-400 text-lg">
+            Sử dụng <strong>MongoDB</strong> với thư viện <strong>Mongoose</strong>.
+            <br>Quy tắc chung:
+            <span class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Soft Delete (isDeleted)</span>
+            <span class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Indexing FKs</span>
+            <span class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Timestamps</span>
+        </p>
+    </div>
+
+    <div class="space-y-16">
+
+        <div class="pl-6 border-l-2 border-blue-600">
+            <h3 class="text-xl font-bold text-blue-400 mb-4">1. Identity Module (Quản lý User & Gia đình)</h3>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-blue-300 font-bold">
+                        User.js
+                    </div>
+                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const UserSchema = new Schema({
+  // --- Auth Info ---
+  phoneNumber: { 
+    type: String, 
+    unique: true, 
+    sparse: true, // Cho phép null (nếu login bằng email)
+    index: true   // Tối ưu tìm kiếm khi login
+  },
+  email: { type: String, unique: true, sparse: true, lowercase: true },
+  password: { type: String, select: false }, // Ẩn khi query mặc định
+  
+  // --- Profile ---
+  fullName: { type: String, required: true },
+  nickname: { type: String }, // VD: "Bà Nội", "Mẹ Lan"
+  avatar: { type: String, default: "https://silverlink.ai/default.png" },
+  role: { 
+    type: String, 
+    enum: ['elderly', 'manager', 'admin'], 
+    default: 'elderly',
+    required: true
+  },
+
+  // --- Relationships ---
+  familyId: { type: Schema.Types.ObjectId, ref: 'Family', index: true },
+
+  // --- Settings (Cấu hình) ---
+  settings: {
+    voiceMode: { type: Boolean, default: true }, // Bật tắt đọc AI
+    timezone: { type: String, default: 'Asia/Ho_Chi_Minh' }, // Quan trọng để nhắc thuốc
+    reminderVolume: { type: Number, min: 0, max: 100, default: 80 },
+    appLanguage: { type: String, enum: ['vi', 'en'], default: 'vi' }
+  },
+
+  // --- Device & Push ---
+  fcmTokens: [String], // Mảng token Firebase để gửi Noti
+  lastActiveAt: Date,  // Để biết cụ còn online không
+  isDeleted: { type: Boolean, default: false } // Soft delete
+}, { timestamps: true });</pre>
                 </div>
 
-            </div>
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-blue-300 font-bold">
+                        Family.js
+                    </div>
+                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const FamilySchema = new Schema({
+  name: { type: String, required: true }, // "Gia đình Ông Ba"
+  
+  // Mã mời để con cháu join vào (6 ký tự)
+  inviteCode: { 
+    type: String, 
+    unique: true, 
+    uppercase: true,
+    index: true 
+  }, 
 
+  ownerId: { type: Schema.Types.ObjectId, ref: 'User' }, // Người tạo
+
+  members: [{
+    userId: { type: Schema.Types.ObjectId, ref: 'User' },
+    role: { type: String, enum: ['admin', 'member'] }, // Admin được xóa người khác
+    joinedAt: { type: Date, default: Date.now }
+  }],
+
+  // Gói dịch vụ (Kiếm tiền ở đây)
+  subscription: {
+    plan: { type: String, enum: ['free', 'premium'], default: 'free' },
+    expiryDate: Date,
+    maxMembers: { type: Number, default: 5 }
+  }
+}, { timestamps: true });</pre>
+                </div>
+            </div>
         </div>
 
-        <div class="flex bg-slate-100 p-1 rounded-2xl gap-1 border border-slate-200">
+        <div class="pl-6 border-l-2 border-green-600">
+            <h3 class="text-xl font-bold text-green-400 mb-4">2. Medical Module (Thuốc & Lịch trình)</h3>
+            <p class="text-sm text-slate-500 mb-4">Logic xử lý lịch uống thuốc lặp lại (Recurrence) và kho thuốc (Inventory).</p>
 
-            <button onclick="switchTab('bo', this)"
-                class="tab-btn flex-1 py-2.5 rounded-xl text-[11px] font-black transition-all tab-active text-white uppercase shadow-sm">
-                🥾 Đi Bộ
-            </button>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
+                        Medication.js (Kho Thuốc)
+                    </div>
+                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const MedicationSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
+  
+  // --- Basic Info ---
+  name: { type: String, required: true }, // "Panadol Extra"
+  nickname: { type: String }, // "Thuốc đau đầu màu đỏ"
+  image: { type: String, required: true }, // Ảnh vỏ hộp (AI Scan)
+  pillImage: { type: String }, // Ảnh viên thuốc (Để hiện lúc nhắc)
+  
+  // --- AI Metadata (Để đối chiếu sai sót) ---
+  aiData: {
+    originalText: String, // Text gốc OCR đọc được
+    confidence: Number, // Độ tin cậy (0.9 = 90%)
+    extractedAt: Date
+  },
 
-            <button onclick="switchTab('cap', this)"
-                class="tab-btn flex-1 py-2.5 rounded-xl text-[11px] font-bold text-slate-500 transition-all uppercase">
-                🚠 Cáp Treo
-            </button>
+  // --- Inventory (Kho) ---
+  totalStock: { type: Number, default: 0, min: 0 }, // Tổng số viên
+  unit: { type: String, default: 'viên' }, // viên, gói, chai
+  lowStockThreshold: { type: Number, default: 5 }, // Cảnh báo khi <= 5
+  expiryDate: Date,
 
-            <button onclick="switchTab('full', this)"
-                class="tab-btn flex-1 py-2.5 rounded-xl text-[11px] font-bold text-slate-500 transition-all uppercase">
-                🔥 3 Tuyến
-            </button>
+  doctorNote: String, // "Bác sĩ dặn uống nhiều nước"
+  isActive: { type: Boolean, default: true }
+}, { timestamps: true });</pre>
+                </div>
 
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
+                        Schedule.js (Lịch Uống)
+                    </div>
+                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const ScheduleSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
+  medicationId: { type: Schema.Types.ObjectId, ref: 'Medication' },
+  
+  time: { type: String, required: true }, // "08:00" (Format 24h)
+  dosage: { type: Number, required: true, default: 1 }, // Số lượng uống 1 lần
+  
+  // --- Logic Lặp lại (Recurrence) ---
+  recurrence: {
+    type: { 
+      type: String, 
+      enum: ['daily', 'specific_days', 'interval'], 
+      default: 'daily' 
+    },
+    // Nếu type='specific_days' -> [1, 3, 5] (Thứ 2, 4, 6)
+    daysOfWeek: [{ type: Number, min: 0, max: 6 }], 
+    // Nếu type='interval' -> 2 (Cách 2 ngày uống 1 lần)
+    interval: Number 
+  },
+
+  instruction: { 
+    type: String, 
+    enum: ['before_meal', 'after_meal', 'during_meal'],
+    default: 'after_meal'
+  },
+  
+  startDate: { type: Date, default: Date.now },
+  endDate: Date // Uống đến khi nào thì dừng
+}, { timestamps: true });</pre>
+                </div>
+
+                <div class="md:col-span-2 bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
+                        ConsumptionLog.js (Lịch Sử)
+                    </div>
+                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const LogSchema = new Schema({
+  scheduleId: { type: Schema.Types.ObjectId, ref: 'Schedule' },
+  medicationId: { type: Schema.Types.ObjectId, ref: 'Medication' },
+  userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
+  
+  // --- Trạng thái ---
+  status: { 
+    type: String, 
+    enum: ['taken', 'missed', 'skipped', 'late'], 
+    required: true 
+  },
+  
+  scheduledAt: Date, // Lịch nhắc lúc 8:00
+  takenAt: Date,     // Uống thực tế lúc 8:15 (Late) hoặc 8:05 (Taken)
+  
+  // --- Bằng chứng (Nếu cần gắt gao) ---
+  proofImage: String, // Ảnh chụp lúc uống
+  notes: String       // "Bà kêu đắng quá"
+}, { timestamps: true });
+
+// Index quan trọng để vẽ biểu đồ nhanh
+LogSchema.index({ userId: 1, takenAt: -1 });</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="pl-6 border-l-2 border-purple-600">
+            <h3 class="text-xl font-bold text-purple-400 mb-4">3. AI Legacy Module (Ký Ức & RAG)</h3>
+            <p class="text-sm text-slate-500 mb-4">Lưu trữ Vector Embeddings để Chatbot có thể tìm kiếm ngữ nghĩa.</p>
+
+            <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-purple-300 font-bold">
+                    Memory.js (Di Sản Số)
+                </div>
+                <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const MemorySchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
+  
+  // --- Source ---
+  originalAudioUrl: { type: String, required: true }, // File ghi âm gốc (S3)
+  duration: Number, // Giây
+  
+  // --- Pipeline Status (Async Processing) ---
+  // AI xử lý tốn thời gian, cần status để Frontend hiện loading
+  processingStatus: { 
+    type: String, 
+    enum: ['pending', 'transcribing', 'vectorizing', 'completed', 'failed'],
+    default: 'pending'
+  },
+
+  // --- Content ---
+  transcript: String,   // Text thô từ Whisper
+  refinedContent: String, // Text đã chuốt văn phong (để in sách)
+  summary: String,      // Tóm tắt ngắn gọn
+
+  // --- AI RAG Core (Quan trọng nhất) ---
+  embedding: [Number],  // Mảng Vector 1536 chiều (OpenAI ada-002)
+  topics: [String],     // ['Tuổi thơ', 'Đi học', 'Chiến tranh']
+  emotion: { type: String, enum: ['happy', 'sad', 'neutral', 'nostalgic'] },
+
+  // --- Privacy ---
+  visibility: { type: String, enum: ['private', 'family', 'public'], default: 'family' },
+  
+  recordedAt: { type: Date, default: Date.now }
+}, { timestamps: true });</pre>
+            </div>
+        </div>
+
+        <div class="pl-6 border-l-2 border-red-600">
+            <h3 class="text-xl font-bold text-red-400 mb-4">4. System & Notifications</h3>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-red-300 font-bold">
+                        Notification.js
+                    </div>
+                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const NotificationSchema = new Schema({
+  recipientId: { type: Schema.Types.ObjectId, ref: 'User' },
+  
+  type: { 
+    type: String, 
+    enum: ['medication', 'sos', 'health', 'system'] 
+  },
+  priority: { type: String, enum: ['high', 'normal'] },
+  
+  title: String,
+  body: String,
+  
+  isRead: { type: Boolean, default: false },
+  data: Object // Payload để navigate (VD: { medicationId: '123' })
+}, { timestamps: true });</pre>
+                </div>
+                
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-red-300 font-bold">
+                        SOSAlert.js
+                    </div>
+                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+const SOSSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  
+  location: {
+    lat: Number,
+    lng: Number,
+    address: String
+  },
+  
+  // Ghi âm 30s môi trường lúc bấm SOS
+  audioContextUrl: String, 
+  
+  status: { 
+    type: String, 
+    enum: ['triggered', 'resolved', 'false_alarm'], 
+    default: 'triggered' 
+  },
+  
+  resolvedBy: { type: Schema.Types.ObjectId, ref: 'User' },
+  resolvedAt: Date
+}, { timestamps: true });</pre>
+                </div>
+            </div>
         </div>
 
     </div>
+</section>
+                    <!-- //Cautructhumuc -->
+                    <section id="folder-structure" class="max-w-5xl mx-auto mb-20 border-t border-slate-800 pt-12">
+                        <h2 class="text-3xl font-bold text-white mb-6">4. Cấu trúc thư mục (Folder Structure)</h2>
 
-</header>
+                    </section>
 
-<main class="max-w-md mx-auto px-4">
-            <div id="tab-bo" class="tab-content space-y-0">
-                <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-green-100 card-enter mb-8">
-                    <h3 class="font-bold text-green-800 text-sm mb-3 flex items-center gap-2">💰 Dự tính phí (Team Đi
-                        Bộ)</h3>
-                    <div class="space-y-2 text-[11px] text-slate-600 border-b border-dashed pb-3">
-                        <div class="flex justify-between">
-                            <span>Vé + Đò (230k):</span>
-                            <span id="bo-ve"
-                                class="font-bold text-slate-800 underline decoration-green-200">230.000đ</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Ăn sáng + vặt (~70k):</span>
-                            <span id="bo-an"
-                                class="font-bold text-slate-800 underline decoration-green-200">70.000đ</span>
-                        </div>
+                  <section id="api-list" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
+    
+    <div class="mb-10">
+        <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
+            <span class="bg-indigo-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-white">5.0</span>
+            Danh sách API (Backend Endpoints)
+        </h2>
+        <p class="text-slate-400 text-lg">
+            Base URL: <code class="bg-slate-800 px-2 py-1 rounded text-green-400">https://api.silverlink.ai/v1</code>
+            <br>Authentication: <code class="bg-slate-800 px-2 py-1 rounded text-yellow-400">Bearer {JWT_TOKEN}</code>
+        </p>
+    </div>
 
-                    </div>
-                    <div class="flex justify-between pt-3 font-black text-lg text-green-700 italic uppercase">
-                        <span>Tổng cộng:</span>
-                        <span id="bo-total" class="bg-green-50 px-2 rounded-lg">300.000đ</span>
-                    </div>
-                </div>
+    <div class="space-y-12">
 
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">06:00</span>
-                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sáng</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div
-                            class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
-                                Ăn Sáng</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">🛵 Xuất phát & Nạp năng lượng</h3>
-
-                            <div class="space-y-3">
-                                <div class="flex gap-3 items-start">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-1.5 shrink-0"></div>
-                                    <p class="text-xs text-slate-600"><strong>Lộ trình:</strong> Chương Mỹ ➔ Ba Thá ➔ Tế
-                                        Tiêu ➔ Hương Sơn.</p>
-                                </div>
-                                <div class="flex gap-3 items-start">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-400 mt-1.5 shrink-0"></div>
-                                    <p class="text-xs text-slate-600"><strong>Ăn sáng:</strong> Dừng tại Vân Đình làm
-                                        bát
-                                        Phở/Bún (~35k). Ăn thật no để lấy sức leo bộ.</p>
-                                </div>
-                                <div
-                                    class="bg-yellow-50 p-3 rounded-2xl border border-yellow-100 flex gap-2 items-start">
-                                    <span class="text-xs">🎒</span>
-                                    <div class="text-[10px] text-yellow-900 leading-relaxed">
-                                        <strong>Checklist cuối:</strong> Giày thể thao cũ êm chân? 2 chai nước lọc? Áo
-                                        khoác
-                                        mỏng? Sạc dự phòng?
-                                    </div>
-                                </div>
+        <div class="bg-slate-900 rounded-xl border border-indigo-500/30 overflow-hidden">
+            <div class="bg-slate-950 p-4 border-b border-indigo-500/30 flex justify-between items-center">
+                <h3 class="text-indigo-400 font-bold text-lg">1. AI Services (Vision & Voice)</h3>
+                <span class="text-xs bg-indigo-900 text-indigo-300 px-2 py-1 rounded">High Latency</span>
+            </div>
+            <table class="w-full text-left text-sm text-slate-400">
+                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                    <tr>
+                        <th class="p-4 w-24">Method</th>
+                        <th class="p-4 w-64">Endpoint</th>
+                        <th class="p-4">Chức năng & Payload</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800">
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/ai/scan-rx</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Quét Đơn Thuốc (OCR)</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request (Multipart): { image: File }<br>
+                                🡨 Response: { medicines: [{ name: "Panadol", dosage: "1", time: ["sáng"] }] }
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter" style="animation-delay: 100ms">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">07:00</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🎟️</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Thủ tục tại Bến</h3>
-
-                            <div class="space-y-3">
-                                <div class="flex gap-3 items-start bg-red-50 p-3 rounded-2xl border border-red-100">
-                                    <span class="text-xs bg-red-500 text-white px-1.5 rounded font-bold">CẢNH BÁO</span>
-                                    <p class="text-[11px] text-red-700 leading-tight"><strong>Tuyệt đối không dừng xe
-                                            theo
-                                            cò mồi vẫy dọc đường.</strong> Họ sẽ thu tiền gửi xe đắt và lèo lái mua vé
-                                        dịch
-                                        vụ ngoài.</p>
-                                </div>
-                                <div class="flex gap-3 items-start">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"></div>
-                                    <p class="text-xs text-slate-600"><strong>Gửi xe:</strong> Vào bãi biển <strong>"Ban
-                                            Tổ
-                                            Chức"</strong> ➔ <span class="font-bold text-green-600 uppercase">Miễn phí
-                                            100%</span>.</p>
-                                </div>
-                                <div class="flex gap-3 items-start">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"></div>
-                                    <p class="text-xs text-slate-600"><strong>Mua vé:</strong> Tại quầy niêm yết. Combo
-                                        <strong>230.000đ</strong> (Thắng cảnh + Đò).
-                                    </p>
-                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/ai/scan-food</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Quét Món Ăn (Nutrition)</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request (Multipart): { image: File }<br>
+                                🡨 Response: { calories: 450, warnings: ["Mặn"], advice: "Uống thêm nước" }
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter" style="animation-delay: 200ms">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">07:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🚣</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Ngồi đò trên Suối Yến</h3>
-                            <p class="text-[10px] text-slate-400 mb-3 italic">Thời gian di chuyển: ~60 phút.</p>
-
-                            <div class="space-y-4 pl-3 border-l-2 border-slate-100">
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-blue-500 ring-4 ring-white shadow-sm">
-                                    </div>
-                                    <strong class="text-xs block text-slate-800">Đền Trình (Ngũ Nhạc)</strong>
-                                    <span class="text-[10px] text-slate-500 block">Đò dừng 15p. Lên thắp hương trình
-                                        diện
-                                        Sơn Thần rồi đi tiếp.</span>
-                                </div>
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-slate-300 ring-4 ring-white shadow-sm">
-                                    </div>
-                                    <strong class="text-xs block text-slate-800">Check-in dọc suối</strong>
-                                    <span class="text-[10px] text-slate-500 block">Núi Mâm Xôi, Núi Con Gà, Cầu Hội.
-                                        Đứng
-                                        chụp ảnh cẩn thận kẻo ngã!</span>
-                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/ai/biographer/upload</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Upload Ghi Âm Hồi Ký</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request (Multipart): { audio: File, topic: "Tuổi thơ" }<br>
+                                🡨 Response: { memoryId: "123", status: "processing" }
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter" style="animation-delay: 300ms">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">08:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🛕</div>
-                            <h3 class="font-bold text-pink-700 text-sm mb-3">Cụm Chùa Thiên Trù</h3>
-
-                            <div class="space-y-3">
-                                <div class="flex gap-3 items-start">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"></div>
-                                    <p class="text-xs text-slate-600"><strong>Lễ Chính:</strong> Vào thắp hương ban Tam
-                                        Bảo
-                                        và Mẫu. Tranh thủ đi vệ sinh tại đây (khu này sạch nhất).</p>
-                                </div>
-                                <div
-                                    class="flex gap-3 items-start bg-purple-50 p-3 rounded-2xl border border-purple-100">
-                                    <span class="text-xs">✨</span>
-                                    <div>
-                                        <strong class="block text-xs text-purple-700">Điểm ẩn: Chùa Tiên Sơn</strong>
-                                        <span class="text-[10px] text-slate-500 leading-relaxed">Nằm bên phải Thiên Trù.
-                                            Có
-                                            tượng Phật tạc vào vách đá (Thạch Thế Tôn). Cực vắng và yên tĩnh.</span>
-                                    </div>
-                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/ai/chat-legacy</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Chat với Ký Ức (RAG)</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request: { query: "Bà thích ăn gì?", contextId: "user_123" }<br>
+                                🡨 Response: { answer: "Bà thích canh cua...", sources: ["memory_id_1"] }
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">09:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🥾</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Chinh phục 3 chặng Leo Bộ</h3>
-                            <p class="text-[11px] text-red-500 italic mb-4 font-bold">"Mệt đâu nghỉ đó, đừng cố quá!"
-                            </p>
-
-                            <div class="space-y-5 pl-3 border-l-2 border-dashed border-slate-200">
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-green-500 ring-4 ring-white shadow-sm">
-                                    </div>
-                                    <strong class="text-xs block text-slate-800">Chặng 1: Chùa Giải Oan</strong>
-                                    <span class="text-[10px] text-slate-500 block">Cách 1km. Lễ Mẫu, rửa mặt giếng Long
-                                        Tuyền lấy may.</span>
-                                </div>
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-orange-400 ring-4 ring-white shadow-sm">
-                                    </div>
-                                    <strong class="text-xs block text-slate-800">Chặng 2: Am Phật Tích</strong>
-                                    <span class="text-[10px] text-slate-500 block">Dừng lại ngắm "Dấu chân Phật" tạc
-                                        trên
-                                        đá.</span>
-                                </div>
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[17px] top-1.5 w-2 h-2 rounded-full bg-red-500 ring-4 ring-white shadow-sm">
-                                    </div>
-                                    <strong class="text-xs block text-slate-800">Chặng 3: Dốc Trò (Đỉnh)</strong>
-                                    <span class="text-[10px] text-slate-500 block">Đoạn khó nhất. Chạm cổng "Nam Thiên
-                                        Đệ
-                                        Nhất Động".</span>
-                                </div>
+        <div class="bg-slate-900 rounded-xl border border-green-500/30 overflow-hidden mt-8">
+            <div class="bg-slate-950 p-4 border-b border-green-500/30 flex justify-between items-center">
+                <h3 class="text-green-400 font-bold text-lg">2. Medication & Schedule</h3>
+                <span class="text-xs bg-green-900 text-green-300 px-2 py-1 rounded">Real-time Critical</span>
+            </div>
+            <table class="w-full text-left text-sm text-slate-400">
+                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                    <tr>
+                        <th class="p-4 w-24">Method</th>
+                        <th class="p-4 w-64">Endpoint</th>
+                        <th class="p-4">Chức năng & Payload</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800">
+                    <tr>
+                        <td class="p-4"><span class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">GET</span></td>
+                        <td class="p-4 font-mono text-white">/schedules/today</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Lấy lịch uống thuốc hôm nay</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Query: ?userId=123 (Dành cho máy Kiosk)<br>
+                                🡨 Response: [ { time: "08:00", medName: "Panadol", status: "pending" } ]
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">11:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">⛰️</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Lễ Động Hương Tích</h3>
-                            <p class="text-[10px] text-slate-400 mb-3 italic">Xuống 120 bậc đá trơn.</p>
-
-                            <div class="grid grid-cols-1 gap-2">
-                                <div class="flex gap-3 bg-pink-50 p-2 rounded-xl border border-pink-100">
-                                    <span class="text-xs">🙏</span>
-                                    <p class="text-[10px] text-pink-900"><strong>Lễ ban chính:</strong> Phật Bà Quan Âm
-                                        Diệu
-                                        Thiện.</p>
-                                </div>
-                                <div class="flex gap-3 bg-blue-50 p-2 rounded-xl border border-blue-100">
-                                    <span class="text-xs">✨</span>
-                                    <p class="text-[10px] text-blue-900"><strong>Xin lộc:</strong> Xoa tay Núi Vàng, Núi
-                                        Bạc. Hứng nước thánh.</p>
-                                </div>
-                                <div
-                                    class="bg-red-50 p-2 rounded-xl border border-red-100 text-[10px] text-red-600 font-bold animate-pulse">
-                                    ⚠️ Cảnh giác móc túi: Luôn đeo ba lô ngược trước ngực!
-                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/medications</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Thêm thuốc mới (Inventory)</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request: { name: "Insulin", totalStock: 20, image: "url" }
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">12:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div
-                            class="bg-orange-50 p-5 rounded-3xl shadow-sm border border-orange-100 relative overflow-hidden">
-                            <div class="absolute top-4 right-4 text-2xl">🍙</div>
-                            <h3 class="font-bold text-orange-800 text-sm mb-3">Tiệc Picnic Rừng Xanh</h3>
-
-                            <div class="space-y-3">
-                                <div>
-                                    <strong class="text-xs block text-orange-700">Vị trí:</strong>
-                                    <span class="text-[11px] text-slate-600">Tìm gốc cây mát hoặc ghế đá đoạn đường ra
-                                        khỏi
-                                        động.</span>
-                                </div>
-                                <div
-                                    class="bg-white/60 p-3 rounded-2xl text-[11px] text-orange-900 border border-orange-200">
-                                    <strong>Thực đơn nhà làm:</strong> Xôi nếp giò, bánh mì, dưa chuột, quả quýt. Ăn vừa
-                                    ngon vừa không lo bị "chặt chém" giá quán.
-                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/schedules</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Tạo lịch nhắc nhở</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request: { medId: "123", time: "08:00", recurrence: "daily" }
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">13:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🛍️</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Xuống núi & Sắm quà</h3>
-                            <p class="text-[10px] text-slate-400 mb-3 italic">Xuống núi nhanh hơn (mất 45p).</p>
-
-                            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                                <strong class="text-xs block text-slate-700 mb-2">🗨️ Script Mặc Cả Thông Minh:</strong>
-                                <div class="space-y-2">
-                                    <div
-                                        class="bg-white p-2 rounded-xl text-[10px] text-slate-600 border border-slate-100">
-                                        <strong>Rau Sắng:</strong> "Cô ơi 50k mớ này nhé, cháu lấy 2 mớ luôn." (Giá gốc
-                                        khoảng 80-100k).
-                                    </div>
-                                    <div
-                                        class="bg-white p-2 rounded-xl text-[10px] text-slate-600 border border-slate-100">
-                                        <strong>Bánh Củ Mài:</strong> "Lấy cháu hộp date mới nhất cô ơi." (Nhớ xem kỹ vỏ
-                                        hộp).
-                                    </div>
-                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/logs/consume</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Xác nhận đã uống (Nút bấm Kiosk)</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request: { scheduleId: "abc", status: "taken", takenAt: "timestamp" }<br>
+                                🡨 Note: API này sẽ tự động trừ kho thuốc (Stock - 1).
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">15:00</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-purple-50 p-5 rounded-3xl shadow-sm border border-purple-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">✨</div>
-                            <h3 class="font-bold text-purple-800 text-sm mb-3">Bonus: Chùa Thanh Sơn</h3>
-                            <p class="text-[11px] text-slate-600 mb-3 leading-relaxed">
-                                Đừng ra đò sớm! Ghé ngay <strong>Chùa Thanh Sơn - Hương Đài</strong> nằm ngay bến Thiên
-                                Trù.
-                            </p>
-                            <div class="bg-white/60 p-3 rounded-2xl border border-purple-200">
-                                <strong class="text-[10px] text-purple-700 block mb-1 uppercase">Tại sao nên
-                                    đi?</strong>
-                                <span class="text-[10px] text-slate-500">View hồ nước xanh biếc, hang động sâu mát lạnh,
-                                    vắng vẻ không chen chúc. Cực kỳ an nhiên trước khi kết thúc hành trình.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="bg-slate-900 rounded-xl border border-blue-500/30 overflow-hidden mt-8">
+            <div class="bg-slate-950 p-4 border-b border-blue-500/30 flex justify-between items-center">
+                <h3 class="text-blue-400 font-bold text-lg">3. Auth & Family Management</h3>
+            </div>
+            <table class="w-full text-left text-sm text-slate-400">
+                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                    <tr>
+                        <th class="p-4 w-24">Method</th>
+                        <th class="p-4 w-64">Endpoint</th>
+                        <th class="p-4">Chức năng & Payload</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800">
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/auth/login-manager</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Đăng nhập Người thân</strong>
+                            <div class="text-xs font-mono text-slate-500">➔ Request: { email, password }</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/auth/login-qr</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Đăng nhập Kiosk (QR)</strong>
+                            <div class="text-xs font-mono text-slate-500">➔ Request: { qrToken: "xyz..." }</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">GET</span></td>
+                        <td class="p-4 font-mono text-white">/family/dashboard-stats</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Lấy dữ liệu biểu đồ Dashboard</strong>
+                            <div class="text-xs font-mono text-slate-500">🡨 Response: { adherenceRate: 85, lastActive: "5 mins ago" }</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-                <div class="relative flex gap-4 card-enter last-item">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">16:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-slate-800 p-5 rounded-3xl shadow-xl border border-slate-600 text-white relative">
-                            <div class="absolute top-4 right-4 text-2xl">🏠</div>
-                            <h3 class="font-bold text-sm mb-3">Lên đò về bến Yến</h3>
-                            <div class="space-y-2">
-                                <p class="text-xs text-slate-300">- Nghỉ ngơi trên đò 60p, ngắm hoàng hôn suối Yến.</p>
-                                <p class="text-xs text-slate-300">- Tip lái đò: <strong>20k - 30k/người</strong> (tùy
-                                    tâm).
-                                </p>
-                                <div
-                                    class="bg-slate-700 p-2 rounded-xl text-[10px] text-center font-bold text-yellow-400">
-                                    VỀ ĐẾN NHÀ KHOẢNG 18:00 - KẾT THÚC MỘT NGÀY TRỌN VẸN!
-                                </div>
+        <div class="bg-slate-900 rounded-xl border border-red-500/30 overflow-hidden mt-8">
+            <div class="bg-slate-950 p-4 border-b border-red-500/30 flex justify-between items-center">
+                <h3 class="text-red-400 font-bold text-lg">4. System & SOS Alerts</h3>
+            </div>
+            <table class="w-full text-left text-sm text-slate-400">
+                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                    <tr>
+                        <th class="p-4 w-24">Method</th>
+                        <th class="p-4 w-64">Endpoint</th>
+                        <th class="p-4">Chức năng & Payload</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800">
+                    <tr>
+                        <td class="p-4"><span class="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
+                        <td class="p-4 font-mono text-white">/sos/trigger</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Kích hoạt Báo động đỏ</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request: { location: { lat, lng }, audioContext: "url" }<br>
+                                🡨 Note: Kích hoạt Socket.io bắn noti tới toàn bộ Family Member.
                             </div>
-                        </div>
-                    </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4"><span class="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold">PUT</span></td>
+                        <td class="p-4 font-mono text-white">/sos/:id/resolve</td>
+                        <td class="p-4">
+                            <strong class="block text-white mb-1">Đánh dấu đã xử lý SOS</strong>
+                            <div class="text-xs font-mono text-slate-500">
+                                ➔ Request: { note: "Đã gọi điện, bà ổn." }
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <section id="tech-stack" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
+    
+    <div class="mb-10">
+        <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
+            <span class="bg-cyan-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-white">6.0</span>
+            Công nghệ & Kiến trúc (Technology Stack)
+        </h2>
+        <p class="text-slate-400 text-lg">
+            Hệ thống được xây dựng trên nền tảng <strong>MERN Stack (MongoDB - Express - React - Node)</strong> kết hợp với các <strong>AI Service</strong> tiên tiến nhất hiện nay.
+        </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                <span class="text-3xl">⚛️</span>
+                <div>
+                    <h3 class="text-blue-400 font-bold text-lg">6.1. Frontend (Client Side)</h3>
+                    <p class="text-xs text-slate-500">React Ecosystem</p>
                 </div>
             </div>
-            <div id="tab-cap" class="tab-content hidden space-y-0">
-                <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-blue-100 card-enter mb-8">
-                    <h3 class="font-bold text-blue-800 text-sm mb-3 flex items-center gap-2">💰 Dự tính phí (Team Cáp
-                        Treo)
-                    </h3>
-                    <div class="space-y-2 text-[11px] text-slate-600 border-b border-dashed pb-3">
-                        <div class="flex justify-between"><span>Vé + Đò (230k):</span> <span id="cap-ve"
-                                class="font-bold text-slate-800">230.000đ</span></div>
-                        <div class="flex justify-between"><span>Cáp khứ hồi (260k):</span> <span id="cap-car"
-                                class="font-bold text-slate-800">260.000đ</span></div>
-                        <div class="flex justify-between"><span>Ăn quán (~150k):</span> <span id="cap-an"
-                                class="font-bold text-slate-800">150.000đ</span></div>
-                    </div>
-                    <div class="flex justify-between pt-3 font-black text-lg text-blue-700 italic uppercase">
-                        <span>Tổng cộng:</span>
-                        <span id="cap-total">640.000đ</span>
-                    </div>
-                </div>
-                <div class="relative flex gap-4 card-entry">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">06:00</span>
-                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sáng</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-slate-50 p-4 rounded-3xl border border-slate-200 border-dashed">
-                            <h3 class="font-bold text-slate-600 text-sm">🔄 Giai đoạn khởi động</h3>
-                            <p class="text-xs text-slate-500 mt-1 mb-2">
-                                Xuất phát ➔ Ăn sáng ➔ Gửi xe ➔ Đi đò ➔ Lễ Đền Trình ➔ Lễ Thiên Trù.
-                            </p>
-                            <div class="flex items-center gap-2">
-                                <span
-                                    class="bg-yellow-100 text-yellow-800 text-[10px] px-2 py-1 rounded font-bold border border-yellow-200">
-                                    💰 Chi phí: Vé + Đò = 230.000đ
-                                </span>
-                                <span class="text-[10px] text-slate-400 italic">(Xem chi tiết ở Tab Đi Bộ)</span>
-                            </div>
+            <ul class="space-y-4">
+                <li class="flex gap-3">
+                    <div class="w-1 bg-blue-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Core Framework</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            ReactJS (Vite) + TypeScript
                         </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Tốc độ build nhanh (Vite), Type safety (TS) để tránh lỗi runtime.</p>
                     </div>
-                </div>
-
-                <div class="relative flex gap-4 card-entry" style="animation-delay: 100ms">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-blue-700">09:00</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-md border border-blue-100 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
-                                Quan Trọng</div>
-
-                            <h3 class="font-bold text-blue-800 text-sm mb-3 flex items-center gap-2">
-                                🚠 Mua Vé & Vào Ga (Thiên Trù)
-                            </h3>
-
-                            <div class="bg-yellow-50 p-3 rounded-xl border-l-4 border-yellow-400 mb-4 shadow-sm">
-                                <div class="flex justify-between items-center mb-1">
-                                    <span class="text-xs font-bold text-slate-700">Người lớn (Khứ hồi):</span>
-                                    <span
-                                        class="text-sm font-black text-red-600 bg-white px-2 py-0.5 rounded border border-red-100 shadow-sm">260.000đ</span>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs font-bold text-slate-700">Trẻ em (Khứ hồi):</span>
-                                    <span
-                                        class="text-sm font-black text-red-600 bg-white px-2 py-0.5 rounded border border-red-100 shadow-sm">180.000đ</span>
-                                </div>
-                                <p class="text-[10px] text-slate-500 mt-2 italic border-t border-yellow-200 pt-1">
-                                    *Lưu ý: Mua vé 1 chiều rẻ hơn (160k) nhưng lúc về đi bộ sẽ mệt. Nên mua khứ hồi
-                                    luôn.
-                                </p>
-                            </div>
-
-                            <div class="space-y-3">
-                                <div class="flex gap-3">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0">
-                                        1</div>
-                                    <div>
-                                        <strong class="block text-xs text-slate-700">Vị trí Ga:</strong>
-                                        <span class="text-xs text-slate-500">Đứng quay mặt vào chùa Thiên Trù -> Rẽ phải
-                                            đi
-                                            200m.</span>
-                                    </div>
-                                </div>
-                                <div class="flex gap-3">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0">
-                                        2</div>
-                                    <div>
-                                        <strong class="block text-xs text-slate-700">Xếp hàng & Cabin:</strong>
-                                        <span class="text-xs text-slate-500">Cabin chứa 6 người. Đi mất 15 phút. Tha hồ
-                                            chụp
-                                            ảnh rừng mơ từ trên cao.</span>
-                                    </div>
-                                </div>
-                            </div>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-cyan-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Styling (Giao diện)</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            Tailwind CSS v4 + Shadcn/UI
                         </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Phát triển UI cực nhanh, Shadcn cung cấp các component đẹp (Dialog, Card) cho trang Manager.</p>
                     </div>
-                </div>
-
-                <div class="relative flex gap-4 card-entry" style="animation-delay: 200ms">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-blue-700">09:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-blue-100 relative">
-                            <h3 class="font-bold text-blue-800 text-sm mb-3">⛰️ Ga Hương Tích & Lễ Phật</h3>
-
-                            <div class="pl-3 border-l-2 border-dashed border-blue-200 space-y-4">
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[19px] top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow">
-                                    </div>
-                                    <strong class="text-xs block text-slate-800">Từ Ga -> Động (10 phút đi bộ)</strong>
-                                    <span class="text-[10px] text-slate-500">Đường dốc thoải, dễ đi. Hai bên đường bán
-                                        nhiều
-                                        thuốc nam/quà lưu niệm (đừng mua vội, lúc về hãy mua).</span>
-                                </div>
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[19px] top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow">
-                                    </div>
-                                    <strong class="text-xs block text-slate-800">Vào Động Lễ Phật (60 phút)</strong>
-                                    <div class="bg-blue-50 p-2 rounded mt-1 text-[10px] text-slate-600">
-                                        <strong>Việc cần làm:</strong><br>
-                                        - Lễ ban chính (Phật Bà).<br>
-                                        - Xoa tay xin lộc "Cây Vàng - Cây Bạc".<br>
-                                        - Hứng giọt nước từ thạch nhũ (nước thánh).
-                                    </div>
-                                </div>
-                            </div>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-yellow-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">State Management</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            Zustand
                         </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Nhẹ hơn Redux rất nhiều (1KB), phù hợp để quản lý trạng thái đơn giản như User Session, Cart.</p>
                     </div>
-                </div>
-
-                <div class="relative flex gap-4 card-entry" style="animation-delay: 300ms">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-blue-700">11:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-orange-50 p-5 rounded-3xl shadow-sm border border-orange-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🍗</div>
-                            <h3 class="font-bold text-orange-800 text-sm mb-3">Cáp Treo Xuống & Ăn Trưa</h3>
-
-                            <div class="space-y-3">
-                                <div class="bg-white/60 p-2 rounded-xl border border-orange-200">
-                                    <strong class="block text-xs text-orange-700 mb-1">Bước 1: Xuống núi</strong>
-                                    <span class="text-[10px] text-slate-600">Quay lại Ga Hương Tích, đưa vé chiều về để
-                                        đi
-                                        cáp xuống. (Nhớ kiểm tra vé đừng để mất).</span>
-                                </div>
-
-                                <div class="bg-white/60 p-2 rounded-xl border border-orange-200">
-                                    <strong class="block text-xs text-orange-700 mb-1">Bước 2: Ăn trưa tại Thiên
-                                        Trù</strong>
-                                    <ul class="list-disc list-inside text-[10px] text-slate-600">
-                                        <li><strong>Tiết kiệm:</strong> Tìm ghế đá sân chùa ăn Xôi/Bánh mì mang theo.
-                                        </li>
-                                        <li><strong>Sang chảnh:</strong> Vào nhà hàng (Quyết Thắng, Mai Lâm...).</li>
-                                    </ul>
-                                    <div
-                                        class="mt-2 inline-flex items-center gap-1 bg-red-100 text-red-600 px-2 py-0.5 rounded text-[10px] font-bold">
-                                        ⚠️ Hỏi giá trước khi gọi món!
-                                    </div>
-                                </div>
-                            </div>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-purple-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">PWA (Progressive Web App)</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            vite-plugin-pwa
                         </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Bắt buộc để cài đặt Web lên máy tính bảng của người già như một App (Full screen, Offline mode).</p>
                     </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                <span class="text-3xl">🟢</span>
+                <div>
+                    <h3 class="text-green-400 font-bold text-lg">6.2. Backend (Server Side)</h3>
+                    <p class="text-xs text-slate-500">Node.js Ecosystem</p>
                 </div>
-
-                <div class="relative flex gap-4 card-entry">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-purple-700">13:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div
-                            class="bg-white p-5 rounded-3xl shadow-sm border border-purple-100 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
-                                Bonus Trip</div>
-                            <h3 class="font-bold text-purple-800 text-sm mb-3">✨ Tuyến Phụ: Tuyết Sơn</h3>
-                            <p class="text-[10px] text-slate-500 mb-3">Vì đi cáp treo nên còn rất nhiều sức. Đừng về
-                                vội!
-                            </p>
-
-                            <div class="bg-purple-50 p-3 rounded-xl border border-purple-200 mb-3">
-                                <strong class="text-xs block text-purple-900 mb-1">Cách đi:</strong>
-                                <span class="text-[10px] text-slate-600">Ra bến đò Thiên Trù -> Thuê đò đi nhánh
-                                    <strong>Suối Tuyết</strong>.</span>
-                            </div>
-
-                            <div class="bg-yellow-50 p-3 rounded-xl border-l-4 border-yellow-400 shadow-sm">
-                                <strong class="block text-xs text-slate-700 mb-1">💰 Chi phí phát sinh (Thỏa
-                                    thuận):</strong>
-                                <div class="flex items-center gap-2">
-                                    <span
-                                        class="text-sm font-black text-red-600 bg-white px-2 py-0.5 rounded border border-red-100 shadow-sm">~150k
-                                        - 200k</span>
-                                    <span class="text-[10px] text-slate-500">(Giá trọn gói cho cả đò/cả đoàn)</span>
-                                </div>
-                                <p class="text-[10px] text-slate-400 italic mt-1">*Tiền này trả trực tiếp cho lái đò.
-                                </p>
-                            </div>
-
-                            <ul class="mt-3 list-disc list-inside text-[10px] text-slate-600">
-                                <li>Suối Tuyết Sơn đẹp và vắng, chụp ảnh cực chill.</li>
-                                <li>Thăm Chùa Bảo Đài & Động Tuyết Sơn.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-entry last-item">
-                    <div class="timeline-line"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">16:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-slate-800 p-5 rounded-3xl shadow-sm border border-slate-600 text-white relative">
-                            <h3 class="font-bold text-sm mb-2">🏠 Kết thúc hành trình</h3>
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="bg-slate-600 px-2 py-0.5 rounded text-[10px]">Tip lái đò</span>
-                                <span class="text-xs font-bold text-yellow-400">20k-30k/người</span>
-                            </div>
-                            <p class="text-xs text-slate-300">Lên đò về bến Yến -> Lấy xe -> Về nhà an toàn.</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-            <div id="tab-full" class="tab-content hidden space-y-0">
-                <div
-                    class="bg-purple-900 p-5 rounded-3xl shadow-xl text-white card-enter mb-8 relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 text-6xl opacity-10 font-black italic">$$</div>
-                    <h3 class="font-bold text-purple-200 text-sm mb-3 flex items-center gap-2">💰 Ngân sách (Team Oanh
-                        Tạc)
-                    </h3>
-                    <div class="space-y-2 text-[11px] opacity-90 border-b border-purple-700 pb-3">
-                        <div class="flex justify-between"><span>Vé + Đò (230k):</span> <span id="full-ve"
-                                class="font-bold text-yellow-300">230.000đ</span></div>
-                        <div class="flex justify-between"><span>Cáp 1 chiều (160k):</span> <span id="full-cap"
-                                class="font-bold text-yellow-300">160.000đ</span></div>
-                        <div class="flex justify-between"><span>Ăn uống tự túc (~50k):</span> <span id="full-an"
-                                class="font-bold text-yellow-300">50.000đ</span></div>
-                        <div class="flex justify-between font-bold text-orange-400 mt-1 uppercase"><span>Tiền Deal Đò
-                                (Đoàn):</span> <span>+ 350.000đ</span></div>
+            <ul class="space-y-4">
+                <li class="flex gap-3">
+                    <div class="w-1 bg-green-600 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Runtime & Framework</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            Node.js + Express.js
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Non-blocking I/O, xử lý hàng nghìn request đồng thời từ các thiết bị IoT/Kiosk.</p>
                     </div>
-                    <div class="flex justify-between pt-3 font-black text-lg text-white italic uppercase">
-                        <span>Tổng cộng:</span>
-                        <span id="full-total">790.000đ</span>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-red-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Real-time Communication</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            Socket.io
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Cần thiết cho tính năng SOS và đồng bộ trạng thái uống thuốc tức thì (Client <-> Server).</p>
                     </div>
-                </div>
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">06:00</span>
-                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sáng</span>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-orange-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Task Scheduling</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            node-cron
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Quét database mỗi phút để tìm lịch uống thuốc và gửi thông báo.</p>
                     </div>
-                    <div class="flex-1 pb-8">
-                        <div
-                            class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold">
-                                Ăn Sáng</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">🛵 Xuất phát & Nạp năng lượng</h3>
-                            <div class="space-y-2 text-xs text-slate-600 leading-relaxed">
-                                <p><strong>Lộ trình:</strong> Chương Mỹ ➔ Ba Thá ➔ Tế Tiêu ➔ Hương Sơn.</p>
-                                <p><strong>Ăn sáng:</strong> Dừng tại Vân Đình làm bát Phở/Bún (~35k). Ăn thật no để lấy
-                                    sức
-                                    leo bộ.</p>
-                                <div
-                                    class="bg-yellow-50 p-2 rounded-xl border border-yellow-100 text-[10px] text-yellow-800">
-                                    <strong>🎒 Checklist:</strong> Giày thể thao cũ? 2 nước lọc? Áo khoác mỏng? Sạc dự
-                                    phòng?
-                                </div>
-                            </div>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-blue-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Security</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">
+                            JWT, Bcrypt, Helmet, Cors
                         </div>
                     </div>
-                </div>
+                </li>
+            </ul>
+        </div>
 
-                <div class="relative flex gap-4 card-enter" style="animation-delay: 100ms">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">07:00</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🎟️</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Thủ tục tại Bến</h3>
-                            <div class="space-y-3">
-                                <div
-                                    class="bg-red-50 p-2.5 rounded-xl border border-red-100 text-[10px] text-red-600 font-bold uppercase">
-                                    ⚠️ CẢNH BÁO: Không dừng xe theo cò mồi vẫy dọc đường.
-                                </div>
-                                <div class="text-xs text-slate-600 leading-relaxed pl-1 space-y-1">
-                                    <p>• <strong>Gửi xe:</strong> Bãi "Ban Tổ Chức" ➔ <span
-                                            class="text-green-600 font-bold">Miễn phí 100%</span>.</p>
-                                    <p>• <strong>Mua vé:</strong> Tại quầy combo <span
-                                            class="price-tag">230.000đ</span>.
-                                    </p>
-                                </div>
-                                <div class="bg-purple-900 p-3 rounded-2xl text-white shadow-lg">
-                                    <strong class="text-[10px] text-purple-200 block mb-1 uppercase tracking-widest">🗣️
-                                        Deal đò 3 tuyến (Ngay tại đây)</strong>
-                                    <p class="text-[10px] italic opacity-90 leading-snug">"Chú ơi nhà cháu đi combo:
-                                        Hương
-                                        Tích + Long Vân + Tuyết Sơn. Ngoài vé cháu biếu thêm tiền công chèo cả ngày, chú
-                                        lấy
-                                        bao nhiêu?"</p>
-                                    <div class="mt-2 flex items-center justify-between">
-                                        <span class="text-[9px] font-bold">Giá deal thêm khuyên dùng:</span>
-                                        <span class="text-xs font-black text-yellow-400">~250k - 400k/đò</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="bg-slate-900 rounded-2xl border border-indigo-500/30 p-6 md:col-span-2">
+            <div class="flex items-center gap-3 mb-4 border-b border-indigo-500/30 pb-3">
+                <span class="text-3xl">🧠</span>
+                <div>
+                    <h3 class="text-indigo-400 font-bold text-lg">6.3. AI Core (Artificial Intelligence)</h3>
+                    <p class="text-xs text-slate-500">Tích hợp các Model tiên tiến nhất (API-based)</p>
                 </div>
-
-                <div class="relative flex gap-4 card-enter" style="animation-delay: 200ms">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">07:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🚣</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Ngồi đò trên Suối Yến</h3>
-                            <div class="space-y-3">
-                                <p class="text-[10px] text-slate-400 italic">⏱️ 60 phút di chuyển (Bao gồm lễ).</p>
-                                <div class="pl-3 border-l-2 border-purple-100 space-y-3">
-                                    <div>
-                                        <strong class="text-xs block text-slate-700">Đền Trình (Ngũ Nhạc)</strong>
-                                        <span class="text-[10px] text-slate-500">Đò dừng 15p. Thắp hương trình diện Sơn
-                                            Thần.</span>
-                                    </div>
-                                    <div class="bg-purple-50 p-2 rounded-xl">
-                                        <strong class="text-[10px] text-purple-700 block mb-0.5">🔍 Điểm nhỏ dọc
-                                            suối:</strong>
-                                        <span class="text-[10px] text-slate-500 leading-tight">Núi Mâm Xôi, Núi Con Gà,
-                                            Núi
-                                            Voi Phục. Đứng chụp ảnh tại <strong>Cầu Hội</strong> cẩn thận kẻo
-                                            ngã!</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-purple-700">08:30</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">🏔️</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3 uppercase tracking-tighter">Tuyến 1: Động
-                                Hương
-                                Tích</h3>
-                            <div class="space-y-3">
-                                <div
-                                    class="bg-blue-50 p-2.5 rounded-xl border border-blue-100 flex items-center justify-between">
-                                    <span class="text-[10px] font-bold text-blue-800 uppercase">Đi Cáp Treo khứ
-                                        hồi</span>
-                                    <span class="price-tag text-blue-700">260.000đ</span>
-                                </div>
-                                <div class="text-[10px] text-slate-600 pl-1 space-y-1.5 leading-relaxed">
-                                    <p>📍 <strong>Chùa Thiên Trù:</strong> Lễ ban chính nhanh (15p) rồi rẽ phải vào Ga.
-                                    </p>
-                                    <p>📍 <strong>Chùa Tiên Sơn:</strong> Nằm ngay sườn núi sát Thiên Trù. Chỉ ghé nếu
-                                        vắng.
-                                    </p>
-                                    <p>📍 <strong>Trong Động:</strong> Lễ Phật Bà Quan Âm. Xoa tay vào <strong>Đụn
-                                            Gạo</strong> xin lộc ấm no.</p>
-                                </div>
-                                <div class="bg-red-600 p-2 rounded-xl text-center shadow-lg shadow-red-100">
-                                    <span class="text-[10px] font-black text-white uppercase tracking-widest">🕒
-                                        Deadline:
-                                        11:15 phải có mặt tại đò!</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-orange-600">11:15</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-orange-50 p-4 rounded-3xl shadow-sm border border-orange-100 text-center">
-                            <h3 class="font-bold text-orange-800 text-sm mb-1 uppercase">🍙 Ăn trưa Chiến thuật</h3>
-                            <p class="text-[10px] text-slate-500 italic mb-2">⏱️ 30 phút ngồi đò (Thiên Trù ➔ Nhánh Long
-                                Vân)</p>
-                            <div
-                                class="bg-white/70 p-3 rounded-2xl text-[10px] text-orange-900 border border-orange-200 leading-relaxed font-medium">
-                                Nhà mình <strong>ăn xôi, giò, bánh mì ngay trên đò</strong>. Không dừng quán để dành 2
-                                tiếng
-                                leo 2 suối sau cực đẹp.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-purple-700">11:45</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div
-                            class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 right-0 bg-purple-100 text-purple-700 text-[9px] px-3 py-1 rounded-bl-xl font-black uppercase tracking-tighter">
-                                View đẹp nhất</div>
-                            <div class="absolute top-4 right-10 text-2xl opacity-20">☁️</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3 uppercase tracking-tighter">Tuyến 2: Động
-                                Long
-                                Vân</h3>
-                            <div class="space-y-4">
-                                <div class="bg-purple-50 p-3 rounded-2xl border border-purple-100">
-                                    <strong class="text-[10px] text-purple-800 block mb-1">📍 Động Long Vân:</strong>
-                                    <p class="text-[10px] text-slate-600 leading-relaxed font-medium">
-                                        Leo dốc thoai thoải 20p. Hang động cực rộng và mát lạnh. Cửa hang nhìn thẳng
-                                        xuống
-                                        cánh đồng lúa xanh ngắt ➔ Điểm chụp ảnh đẹp nhất cả ngày!
-                                    </p>
-                                </div>
-                                <div class="text-[10px] text-slate-500 border-l-2 border-purple-200 pl-3">
-                                    🔍 <strong>Chùa Long Vân:</strong> Nằm nép mình dưới tán cây cổ thụ ngay chân núi,
-                                    ghé
-                                    lễ 10p.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-[10px] font-bold text-slate-400 uppercase">Transit</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div
-                            class="bg-slate-100 p-3 rounded-2xl border border-slate-200 text-center relative overflow-hidden">
-                            <div class="absolute inset-y-0 left-0 w-1 bg-blue-400"></div>
-                            <p class="text-[10px] text-slate-600 font-bold italic">
-                                ⏱️ 45 phút ngồi đò (Suối Long Vân ➔ Suối Tuyết)
-                            </p>
-                            <p class="text-[9px] text-slate-400 mt-1 uppercase tracking-tighter">Đoạn suối hẹp, rừng cây
-                                sát
-                                sạt, nước trong thấy đáy.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-purple-700">14:15</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 relative">
-                            <div class="absolute top-4 right-4 text-2xl">❄️</div>
-                            <h3 class="font-bold text-slate-800 text-sm mb-3 uppercase tracking-tighter">Tuyến 3: Chùa
-                                Tuyết
-                                Sơn</h3>
-                            <div class="space-y-4">
-                                <div class="bg-blue-50/50 p-3 rounded-2xl border border-blue-100 space-y-3">
-                                    <div class="relative pl-3">
-                                        <div class="absolute left-0 top-1 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                                        <strong class="text-[10px] text-blue-800 block">Chùa Bảo Đài:</strong>
-                                        <p class="text-[10px] text-slate-500">Kiến trúc gỗ cổ nhất vùng. Không gian cực
-                                            kỳ
-                                            trang nghiêm.</p>
-                                    </div>
-                                    <div class="relative pl-3">
-                                        <div class="absolute left-0 top-1 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                                        <strong class="text-[10px] text-blue-800 block">Động Tuyết Sơn:</strong>
-                                        <p class="text-[10px] text-slate-500">Leo bộ nhẹ. Lễ tượng <strong>Phật
-                                                Lồi</strong>
-                                            linh thiêng (tượng tạc trực tiếp từ khối đá lộ thiên).</p>
-                                    </div>
-                                    <div class="relative pl-3">
-                                        <div class="absolute left-0 top-1 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                                        <strong class="text-[10px] text-blue-800 block">Am Cô:</strong>
-                                        <p class="text-[10px] text-slate-500">Ngôi miếu nhỏ giữa rừng cây, thanh tịnh vô
-                                            cùng.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">16:15</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-slate-50 p-4 rounded-3xl border border-slate-200 shadow-inner">
-                            <h3
-                                class="font-bold text-slate-700 text-sm uppercase tracking-widest flex items-center gap-2">
-                                🛶 Về bến Yến <span class="animate-bounce">🔚</span>
-                            </h3>
-                            <p class="text-[10px] text-slate-500 mt-1 italic leading-relaxed">
-                                ⏱️ 60 phút di chuyển đò. Lúc này hoàng hôn xuống Suối Yến cực đẹp. Cả nhà thong thả nghỉ
-                                chân, lọc ảnh chuẩn bị đăng Facebook/Tiktok.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex gap-4 card-enter last-item">
-                    <div class="timeline-line border-purple-200"></div>
-                    <div class="w-14 flex-shrink-0 text-right pt-1 z-10">
-                        <span class="block text-xl font-black text-slate-800">17:15</span>
-                    </div>
-                    <div class="flex-1 pb-8">
-                        <div class="bg-purple-900 p-6 rounded-3xl shadow-2xl text-white relative overflow-hidden">
-                            <div class="absolute -right-6 -bottom-6 text-8xl opacity-10 font-black">WIN</div>
-                            <h3 class="font-black text-sm mb-3 uppercase tracking-widest">🏁 Về đích an toàn</h3>
-                            <p class="text-[11px] text-purple-200 leading-relaxed mb-4">
-                                Bào sạch 3 tuyến kinh điển. Về nhà lấy xe, trên đường qua Vân Đình tạt vào ăn
-                                <strong>Cháo
-                                    se</strong> hoặc <strong>Vịt quay</strong> là hết sảy!
-                            </p>
-                            <div class="bg-purple-800/80 p-3 rounded-2xl border border-purple-700 shadow-inner">
-                                <span class="text-xs">💵</span>
-                                <strong class="text-[10px] text-yellow-400 uppercase ml-1">Thanh toán tiền công cho chú
-                                    lái
-                                    đò + Tip nhẹ!</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-        </main>
-
-        <dialog id="modal-gia" class="modal p-0 rounded-3xl backdrop:bg-slate-900/50">
-            <div class="bg-white p-6 w-80">
-                <h3 class="font-bold text-lg text-pink-700 mb-4 text-center">💰 Bảng Giá Gốc 2026</h3>
-                <div class="space-y-3 text-xs text-slate-600 font-bold">
-                    <div class="flex justify-between border-b border-dashed pb-2"><span>Vé + Đò</span> <span>230k</span>
-                    </div>
-                    <div class="flex justify-between border-b border-dashed pb-2"><span>Cáp Khứ Hồi</span>
-                        <span>260k</span>
-                    </div>
-                    <div class="flex justify-between border-b border-dashed pb-2"><span>Cáp 1 Chiều</span>
-                        <span>160k</span>
-                    </div>
-                    <div class="flex justify-between text-green-600 bg-green-50 p-2 rounded"><span>Gửi Xe (BTC)</span>
-                        <span>FREE</span>
-                    </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <strong class="text-white text-sm block mb-1">1. Computer Vision (Thị giác)</strong>
+                    <div class="text-xs text-green-400 font-mono mb-2">Model: Gemini 1.5 Flash</div>
+                    <p class="text-[11px] text-slate-400">
+                        Sử dụng để OCR đơn thuốc và nhận diện món ăn.
+                        <br><strong>Lý do:</strong> Gemini Flash rẻ hơn GPT-4o gấp 10 lần nhưng tốc độ xử lý ảnh cực nhanh (< 2s).
+                    </p>
                 </div>
-                <form method="dialog" class="mt-6"><button
-                        class="w-full bg-slate-100 py-3 rounded-xl font-bold text-slate-600">Đóng</button></form>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <strong class="text-white text-sm block mb-1">2. Speech-to-Text (Giọng nói)</strong>
+                    <div class="text-xs text-green-400 font-mono mb-2">Model: OpenAI Whisper-1</div>
+                    <p class="text-[11px] text-slate-400">
+                        Chuyển đổi file ghi âm hồi ký sang văn bản.
+                        <br><strong>Lý do:</strong> Hỗ trợ tiếng Việt tốt nhất hiện nay, nhận diện được cả dấu câu và ngữ điệu vùng miền.
+                    </p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <strong class="text-white text-sm block mb-1">3. LLM & Chat (Ngôn ngữ)</strong>
+                    <div class="text-xs text-green-400 font-mono mb-2">Model: Gemini 1.5 Pro + RAG</div>
+                    <p class="text-[11px] text-slate-400">
+                        Biên tập hồi ký và Chatbot trả lời câu hỏi.
+                        <br><strong>Lý do:</strong> Context window lớn (1M tokens) giúp AI nhớ được nhiều ký ức của người già hơn.
+                    </p>
+                </div>
             </div>
-        </dialog>
-        <script>
-            // Hàm bật/tắt ngăn kéo tính tiền
-            function toggleBudget() {
-                const drawer = document.getElementById('budgetDrawer');
-                const overlay = document.getElementById('overlay');
+        </div>
 
-                if (drawer.classList.contains('translate-x-full')) {
-                    drawer.classList.remove('translate-x-full');
-                    overlay.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden'; // Khóa cuộn trang khi mở drawer
-                } else {
-                    drawer.classList.add('translate-x-full');
-                    overlay.classList.add('hidden');
-                    document.body.style.overflow = 'auto'; // Mở cuộn trang
-                }
-            }
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                <span class="text-3xl">💾</span>
+                <div>
+                    <h3 class="text-yellow-400 font-bold text-lg">6.4. Database & Storage</h3>
+                </div>
+            </div>
+            <ul class="space-y-4">
+                <li class="flex gap-3">
+                    <div class="w-1 bg-green-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Primary DB</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">MongoDB Atlas</div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lưu User, Lịch uống thuốc. Dạng NoSQL phù hợp với JSON trả về từ AI.</p>
+                    </div>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-purple-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">Vector DB (Cho AI)</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">MongoDB Atlas Vector Search</div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lưu các vector embeddings của ký ức để thực hiện tìm kiếm ngữ nghĩa (Semantic Search).</p>
+                    </div>
+                </li>
+                <li class="flex gap-3">
+                    <div class="w-1 bg-orange-500 rounded"></div>
+                    <div class="flex-1">
+                        <strong class="text-white text-sm block">File Storage</strong>
+                        <div class="text-xs text-slate-400 font-mono mt-1">AWS S3 / Cloudinary</div>
+                        <p class="text-[10px] text-slate-500 mt-1">Lưu trữ file ghi âm (.webm) và ảnh chụp (.jpg) lâu dài.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-            // Chỉnh lại Main Margin-Top cho vừa với Header mỏng mới
-            // Bạn tìm thẻ <main> và sửa mt-36 thành mt-32 nhé!
-            function calculateAll() {
-                const n = parseInt(document.getElementById('numPeople').value) || 0;
-                const fmt = (val) => val.toLocaleString('vi-VN') + 'đ';
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                <span class="text-3xl">🚀</span>
+                <div>
+                    <h3 class="text-red-400 font-bold text-lg">6.5. DevOps & Tools</h3>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                    <div class="text-[10px] text-slate-500 uppercase font-bold">Deploy Frontend</div>
+                    <div class="text-white font-bold">Vercel</div>
+                </div>
+                <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                    <div class="text-[10px] text-slate-500 uppercase font-bold">Deploy Backend</div>
+                    <div class="text-white font-bold">Render / Railway</div>
+                </div>
+                <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                    <div class="text-[10px] text-slate-500 uppercase font-bold">CI/CD</div>
+                    <div class="text-white font-bold">GitHub Actions</div>
+                </div>
+                <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                    <div class="text-[10px] text-slate-500 uppercase font-bold">Testing</div>
+                    <div class="text-white font-bold">Postman</div>
+                </div>
+            </div>
+        </div>
 
-                // 1. Team Đi Bộ
-                const veBo = 230000 * n;
-                const anBo = 70000 * n;
-                document.getElementById('bo-ve').innerText = fmt(veBo);
-                document.getElementById('bo-an').innerText = fmt(anBo);
-                document.getElementById('bo-total').innerText = fmt(veBo + anBo);
+    </div>
+</section>
+</section>
 
-                // 2. Team Cáp Treo
-                const veCap = 230000 * n;
-                const carCap = 260000 * n;
-                const anCap = 150000 * n;
-                document.getElementById('cap-ve').innerText = fmt(veCap);
-                document.getElementById('cap-car').innerText = fmt(carCap);
-                document.getElementById('cap-an').innerText = fmt(anCap);
-                document.getElementById('cap-total').innerText = fmt(veCap + carCap + anCap);
-
-                // 3. Team Bào 3 Tuyến
-                const veFull = 230000 * n;
-                const capFull = 160000 * n;
-                const anFull = 50000 * n;
-                const dealDo = 350000; // Tiền deal cố định theo đò
-                document.getElementById('full-ve').innerText = fmt(veFull);
-                document.getElementById('full-cap').innerText = fmt(capFull);
-                document.getElementById('full-an').innerText = fmt(anFull);
-                document.getElementById('full-total').innerText = fmt(veFull + capFull + anFull + dealDo);
-            }
-
-
-            function switchTab(tabId, btn) {
-                document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-                document.getElementById('tab-' + tabId).classList.remove('hidden');
-
-                document.querySelectorAll('button').forEach(b => {
-                    if (b.parentElement.classList.contains('bg-slate-100')) {
-                        b.classList.remove('tab-active');
-                        b.classList.remove('text-white');
-                        b.classList.add('text-slate-500');
-                    }
-                });
-                btn.classList.add('tab-active');
-                btn.classList.remove('text-slate-500');
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                calculateAll();
-            }
-        </script>
-    </body>
+    </main>
+</body>
 
 </html>
