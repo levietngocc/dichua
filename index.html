@@ -67,84 +67,83 @@
     </style>
 </head>
 
-<body class="flex h-screen overflow-hidden">
-<button id="mobile-menu-btn" class="fixed top-4 left-4 z-50 p-2 bg-slate-800 rounded-md text-white md:hidden hover:bg-slate-700 shadow-lg border border-slate-700">
+<body class="flex h-screen overflow-hidden bg-slate-950 text-slate-200 relative">
+<button id="mobile-menu-btn" class="fixed top-4 left-4 z-40 p-2 bg-slate-800/80 backdrop-blur-md rounded-lg text-white md:hidden hover:bg-slate-700 border border-slate-700 transition-all shadow-lg">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
     </button>
 
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/80 z-30 hidden transition-opacity opacity-0 backdrop-blur-sm md:hidden"></div>
-   <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-slate-900 border-r border-slate-800 flex flex-col transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:inset-auto">
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/80 z-40 hidden transition-opacity opacity-0 backdrop-blur-sm md:hidden"></div>
+
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-900 border-r border-slate-800 flex flex-col transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:inset-auto shadow-2xl">
         
-        <div class="p-6 border-b border-slate-800 flex justify-between items-center">
-            <h1 class="text-2xl font-black text-white tracking-tight">SilverLink <span class="text-blue-500">AI</span></h1>
-            <button id="close-menu-btn" class="md:hidden text-slate-400 hover:text-white">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center h-16">
+            <h1 class="text-xl font-black text-white tracking-tight flex items-center gap-2">
+                <span class="text-2xl">🔥</span> SilverLink <span class="text-blue-500">AI</span>
+            </h1>
+            <button id="close-menu-btn" class="md:hidden p-1 bg-slate-800 rounded hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
 
-        <nav class="flex-1 overflow-y-auto py-4">
+        <nav class="flex-1 overflow-y-auto py-4 scrollbar-hide">
             <div class="px-6 py-2 text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-2 border-t border-slate-800 pt-4">
                 1. SYSTEM ARCHITECTURE
             </div>
-            <a href="#overview" class="block px-6 py-1.5 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800">
+            <a href="#overview" class="block px-6 py-2 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800 rounded-r-full mr-4">
                 1.1 Architecture Modules
             </a>
-            <a href="#interface-strategy" class="block px-6 py-1.5 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800">
+            <a href="#interface-strategy" class="block px-6 py-2 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800 rounded-r-full mr-4">
                 1.2 UI Strategy (3-in-1)
             </a>
-            <div class="pl-10 pr-6 space-y-1 mt-1">
-                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-blue-400 sidebar-link">└─ 👴 Elderly Kiosk</a>
-                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-green-400 sidebar-link">└─ 🧑‍💼 Manager Dash</a>
-                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-red-400 sidebar-link">└─ 🛠️ Admin System</a>
+            <div class="pl-10 pr-4 space-y-1 mt-1 border-l border-slate-800 ml-6 mb-2">
+                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-blue-400 py-1 transition-colors">└─ 👴 Elderly Kiosk</a>
+                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-green-400 py-1 transition-colors">└─ 🧑‍💼 Manager Dash</a>
+                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-red-400 py-1 transition-colors">└─ 🛠️ Admin System</a>
             </div>
-            <a href="#er-diagram" class="block px-6 py-1.5 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800 mt-1">
+            <a href="#er-diagram" class="block px-6 py-2 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800 rounded-r-full mr-4">
                 2.0 Entity Relations (ERD)
             </a>
 
             <div class="px-6 py-2 text-[10px] font-bold text-yellow-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
                 3. DATABASE SCHEMAS
             </div>
-            <a href="#database-detailed" class="block px-6 py-1.5 text-sm font-bold text-white bg-slate-800/50 border-l-2 border-yellow-500 sidebar-link">
+            <a href="#database-detailed" class="block px-6 py-2 text-sm font-bold text-white bg-slate-800/50 border-l-2 border-yellow-500 rounded-r-full mr-4 mb-2">
                 Overview
             </a>
-            <div class="space-y-1 mt-1">
-                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-yellow-400 sidebar-link">A. Identity (User/Family)</a>
-                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-green-400 sidebar-link">B. Medical (Meds/Logs)</a>
-                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-purple-400 sidebar-link">C. AI Legacy (Memory)</a>
-                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-red-400 sidebar-link">D. System (SOS/Noti)</a>
+            <div class="space-y-1 px-6">
+                <a href="#database-detailed" class="flex items-center gap-2 px-2 py-1.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Identity
+                </a>
+                <a href="#database-detailed" class="flex items-center gap-2 px-2 py-1.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Medical Core
+                </a>
+                <a href="#database-detailed" class="flex items-center gap-2 px-2 py-1.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> AI Legacy
+                </a>
+                <a href="#database-detailed" class="flex items-center gap-2 px-2 py-1.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> System/SOS
+                </a>
             </div>
 
             <div class="px-6 py-2 text-[10px] font-bold text-green-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
                 IMPLEMENTATION
             </div>
-            <a href="#folder-structure" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 sidebar-link">
+            <a href="#folder-structure" class="block px-6 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800 rounded-r-full mr-4 transition-colors">
                 4.0 Folder Structure
             </a>
-            <div class="mt-2">
-                <a href="#api-list" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800 sidebar-link">
+            <div class="mt-1">
+                <a href="#api-list" class="block px-6 py-2 text-sm font-bold text-white hover:bg-slate-800 rounded-r-full mr-4 transition-colors">
                     5.0 API Specifications
                 </a>
-                <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
-                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-indigo-400 py-1 sidebar-link">Type 1: AI Services</a>
-                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-green-400 py-1 sidebar-link">Type 2: Medical Core</a>
-                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-blue-400 py-1 sidebar-link">Type 3: Auth & Family</a>
-                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-red-400 py-1 sidebar-link">Type 4: SOS Alerts</a>
-                </div>
             </div>
-            <div class="mt-4 pb-10">
-                <a href="#tech-stack" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800 sidebar-link">
+            <div class="mt-1 pb-20">
+                <a href="#tech-stack" class="block px-6 py-2 text-sm font-bold text-white hover:bg-slate-800 rounded-r-full mr-4 transition-colors">
                     6.0 Technology Stack
                 </a>
-                <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
-                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-blue-400 py-1 sidebar-link">6.1 Frontend</a>
-                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-green-400 py-1 sidebar-link">6.2 Backend</a>
-                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-indigo-400 py-1 sidebar-link">6.3 AI Core</a>
-                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-yellow-400 py-1 sidebar-link">6.4 Database</a>
-                </div>
             </div>
         </nav>
     </aside>
@@ -1437,57 +1436,61 @@ const SOSSchema = new Schema({
     </main>
 <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // 1. Logic Mobile Menu
             const btn = document.getElementById('mobile-menu-btn');
             const closeBtn = document.getElementById('close-menu-btn');
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('mobile-overlay');
-            const links = document.querySelectorAll('.sidebar-link');
+            const links = document.querySelectorAll('.sidebar-link, nav a'); // Chọn tất cả link trong nav
 
-            function toggleMenu() {
-                const isClosed = sidebar.classList.contains('-translate-x-full');
-                if (isClosed) {
-                    // Mở
-                    sidebar.classList.remove('-translate-x-full');
-                    overlay.classList.remove('hidden');
-                    setTimeout(() => overlay.classList.remove('opacity-0'), 10); // Fade in
-                } else {
-                    // Đóng
-                    sidebar.classList.add('-translate-x-full');
-                    overlay.classList.add('opacity-0');
-                    setTimeout(() => overlay.classList.add('hidden'), 300); // Wait animation
-                }
+            function openMenu() {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                
+                // QUAN TRỌNG: Ẩn nút Hamburger đi để không bị đè lên logo
+                btn.classList.add('hidden');
             }
 
-            // Gán sự kiện
-            btn.addEventListener('click', toggleMenu);
-            closeBtn.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
+            function closeMenu() {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                
+                // Hiện lại nút Hamburger
+                btn.classList.remove('hidden');
+            }
 
-            // Bấm vào link thì tự đóng menu trên mobile
+            // Events
+            btn.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+
+            // Bấm vào link bất kỳ trong menu thì tự đóng menu (trải nghiệm tốt hơn)
             links.forEach(link => {
                 link.addEventListener('click', () => {
-                    if (window.innerWidth < 768) { // Chỉ đóng nếu là mobile (md breakpoint)
-                        toggleMenu();
+                    if (window.innerWidth < 768) { 
+                        closeMenu();
                     }
                 });
             });
 
-            // 2. Logic Active Menu (Giữ nguyên tối ưu cũ)
+            // Intersection Observer (Giữ nguyên để highlight menu)
             const observerOptions = { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        document.querySelectorAll('.sidebar-link').forEach(link => {
-                            link.classList.remove('bg-slate-800', 'text-white', 'border-r-4', 'border-blue-500');
-                            link.classList.add('text-slate-400');
-                        });
                         const id = entry.target.getAttribute('id');
-                        // Tìm link chính xác (ưu tiên href khớp ID)
+                        // Reset style cũ
+                        document.querySelectorAll('.sidebar-link').forEach(link => {
+                            link.classList.remove('bg-slate-800', 'text-white', 'border-l-4', 'border-blue-500');
+                            link.classList.add('text-slate-300');
+                        });
+                        
+                        // Active style mới
                         const activeLink = document.querySelector(`a[href="#${id}"]`);
-                        if (activeLink) {
-                            activeLink.classList.remove('text-slate-400');
-                            activeLink.classList.add('bg-slate-800', 'text-white', 'border-r-4', 'border-blue-500');
+                        if (activeLink && activeLink.classList.contains('sidebar-link')) {
+                            activeLink.classList.remove('text-slate-300');
+                            activeLink.classList.add('bg-slate-800', 'text-white', 'border-l-4', 'border-blue-500');
                         }
                     }
                 });
