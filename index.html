@@ -68,88 +68,85 @@
 </head>
 
 <body class="flex h-screen overflow-hidden">
+<button id="mobile-menu-btn" class="fixed top-4 left-4 z-50 p-2 bg-slate-800 rounded-md text-white md:hidden hover:bg-slate-700 shadow-lg border border-slate-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
 
-    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col z-20">
-        <div class="p-6 border-b border-slate-800">
-            <h1 class="text-2xl font-black text-white tracking-tight">Smart Parenting AI Platform <span
-                    class="text-blue-500">AI</span>
-            </h1>
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/80 z-30 hidden transition-opacity opacity-0 backdrop-blur-sm md:hidden"></div>
+   <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-slate-900 border-r border-slate-800 flex flex-col transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:inset-auto">
+        
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center">
+            <h1 class="text-2xl font-black text-white tracking-tight">SilverLink <span class="text-blue-500">AI</span></h1>
+            <button id="close-menu-btn" class="md:hidden text-slate-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
-        </div>
+
         <nav class="flex-1 overflow-y-auto py-4">
-    
-    <div class="px-6 py-2 text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-2 border-t border-slate-800 pt-4">
-        1. SYSTEM ARCHITECTURE
-    </div>
-    <a href="#overview" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
-        1.1 Architecture Modules
-    </a>
-    <a href="#interface-strategy" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
-        1.2 UI Strategy (3-in-1)
-    </a>
-    <div class="pl-10 pr-6 space-y-1 mt-1">
-        <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-blue-400">└─ 👴 Elderly Kiosk</a>
-        <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-green-400">└─ 🧑‍💼 Manager Dash</a>
-        <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-red-400">└─ 🛠️ Admin System</a>
-    </div>
-    <a href="#er-diagram" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors mt-1">
-        2.0 Entity Relations (ERD)
-    </a>
+            <div class="px-6 py-2 text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-2 border-t border-slate-800 pt-4">
+                1. SYSTEM ARCHITECTURE
+            </div>
+            <a href="#overview" class="block px-6 py-1.5 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800">
+                1.1 Architecture Modules
+            </a>
+            <a href="#interface-strategy" class="block px-6 py-1.5 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800">
+                1.2 UI Strategy (3-in-1)
+            </a>
+            <div class="pl-10 pr-6 space-y-1 mt-1">
+                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-blue-400 sidebar-link">└─ 👴 Elderly Kiosk</a>
+                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-green-400 sidebar-link">└─ 🧑‍💼 Manager Dash</a>
+                <a href="#interface-strategy" class="block text-xs text-slate-500 hover:text-red-400 sidebar-link">└─ 🛠️ Admin System</a>
+            </div>
+            <a href="#er-diagram" class="block px-6 py-1.5 text-sm text-slate-300 sidebar-link transition-colors hover:text-white hover:bg-slate-800 mt-1">
+                2.0 Entity Relations (ERD)
+            </a>
 
-    <div class="px-6 py-2 text-[10px] font-bold text-yellow-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
-        3. DATABASE SCHEMAS
-    </div>
-    <a href="#database-detailed" class="block px-6 py-1.5 text-sm font-bold text-white bg-slate-800/50 border-l-2 border-yellow-500">
-        Overview
-    </a>
-    <div class="space-y-1 mt-1">
-        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-yellow-400">
-            A. Identity (User/Family)
-        </a>
-        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-green-400">
-            B. Medical (Meds/Logs)
-        </a>
-        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-purple-400">
-            C. AI Legacy (Memory)
-        </a>
-        <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-red-400">
-            D. System (SOS/Noti)
-        </a>
-    </div>
+            <div class="px-6 py-2 text-[10px] font-bold text-yellow-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
+                3. DATABASE SCHEMAS
+            </div>
+            <a href="#database-detailed" class="block px-6 py-1.5 text-sm font-bold text-white bg-slate-800/50 border-l-2 border-yellow-500 sidebar-link">
+                Overview
+            </a>
+            <div class="space-y-1 mt-1">
+                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-yellow-400 sidebar-link">A. Identity (User/Family)</a>
+                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-green-400 sidebar-link">B. Medical (Meds/Logs)</a>
+                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-purple-400 sidebar-link">C. AI Legacy (Memory)</a>
+                <a href="#database-detailed" class="block px-6 py-1.5 text-sm text-slate-400 hover:text-red-400 sidebar-link">D. System (SOS/Noti)</a>
+            </div>
 
-    <div class="px-6 py-2 text-[10px] font-bold text-green-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
-        IMPLEMENTATION
-    </div>
-    
-    <a href="#folder-structure" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800">
-        4.0 Folder Structure
-    </a>
-
-    <div class="mt-2">
-        <a href="#api-list" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800">
-            5.0 API Specifications
-        </a>
-        <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
-            <a href="#api-list" class="block text-xs text-slate-500 hover:text-indigo-400 py-1">Type 1: AI Services</a>
-            <a href="#api-list" class="block text-xs text-slate-500 hover:text-green-400 py-1">Type 2: Medical Core</a>
-            <a href="#api-list" class="block text-xs text-slate-500 hover:text-blue-400 py-1">Type 3: Auth & Family</a>
-            <a href="#api-list" class="block text-xs text-slate-500 hover:text-red-400 py-1">Type 4: SOS Alerts</a>
-        </div>
-    </div>
-
-    <div class="mt-4 pb-10">
-        <a href="#tech-stack" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800">
-            6.0 Technology Stack
-        </a>
-        <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
-            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-blue-400 py-1">6.1 Frontend (React)</a>
-            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-green-400 py-1">6.2 Backend (Node)</a>
-            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-indigo-400 py-1">6.3 AI Core (Gemini)</a>
-            <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-yellow-400 py-1">6.4 Database (Mongo)</a>
-        </div>
-    </div>
-
-</nav>
+            <div class="px-6 py-2 text-[10px] font-bold text-green-500 uppercase tracking-widest mt-4 border-t border-slate-800 pt-4">
+                IMPLEMENTATION
+            </div>
+            <a href="#folder-structure" class="block px-6 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 sidebar-link">
+                4.0 Folder Structure
+            </a>
+            <div class="mt-2">
+                <a href="#api-list" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800 sidebar-link">
+                    5.0 API Specifications
+                </a>
+                <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
+                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-indigo-400 py-1 sidebar-link">Type 1: AI Services</a>
+                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-green-400 py-1 sidebar-link">Type 2: Medical Core</a>
+                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-blue-400 py-1 sidebar-link">Type 3: Auth & Family</a>
+                    <a href="#api-list" class="block text-xs text-slate-500 hover:text-red-400 py-1 sidebar-link">Type 4: SOS Alerts</a>
+                </div>
+            </div>
+            <div class="mt-4 pb-10">
+                <a href="#tech-stack" class="block px-6 py-1.5 text-sm font-bold text-white hover:bg-slate-800 sidebar-link">
+                    6.0 Technology Stack
+                </a>
+                <div class="pl-10 pr-6 space-y-1 mt-1 border-l border-slate-800 ml-6">
+                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-blue-400 py-1 sidebar-link">6.1 Frontend</a>
+                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-green-400 py-1 sidebar-link">6.2 Backend</a>
+                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-indigo-400 py-1 sidebar-link">6.3 AI Core</a>
+                    <a href="#tech-stack" class="block text-xs text-slate-500 hover:text-yellow-400 py-1 sidebar-link">6.4 Database</a>
+                </div>
+            </div>
+        </nav>
     </aside>
 
     <main class="flex-1 overflow-y-auto scroll-smooth bg-slate-950 p-8 lg:p-12">
@@ -590,33 +587,40 @@
                         </div>
                     </section>
 
-                  <section id="database-detailed" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
-    
-    <div class="mb-10">
-        <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
-            <span class="bg-yellow-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-black">3.0</span>
-            Database Schema (Production Ready)
-        </h2>
-        <p class="text-slate-400 text-lg">
-            Sử dụng <strong>MongoDB</strong> với thư viện <strong>Mongoose</strong>.
-            <br>Quy tắc chung:
-            <span class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Soft Delete (isDeleted)</span>
-            <span class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Indexing FKs</span>
-            <span class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Timestamps</span>
-        </p>
-    </div>
+                    <section id="database-detailed" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
 
-    <div class="space-y-16">
+                        <div class="mb-10">
+                            <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
+                                <span
+                                    class="bg-yellow-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-black">3.0</span>
+                                Database Schema (Production Ready)
+                            </h2>
+                            <p class="text-slate-400 text-lg">
+                                Sử dụng <strong>MongoDB</strong> với thư viện <strong>Mongoose</strong>.
+                                <br>Quy tắc chung:
+                                <span class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Soft
+                                    Delete (isDeleted)</span>
+                                <span
+                                    class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Indexing
+                                    FKs</span>
+                                <span
+                                    class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 ml-2">Timestamps</span>
+                            </p>
+                        </div>
 
-        <div class="pl-6 border-l-2 border-blue-600">
-            <h3 class="text-xl font-bold text-blue-400 mb-4">1. Identity Module (Quản lý User & Gia đình)</h3>
-            
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-blue-300 font-bold">
-                        User.js
-                    </div>
-                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                        <div class="space-y-16">
+
+                            <div class="pl-6 border-l-2 border-blue-600">
+                                <h3 class="text-xl font-bold text-blue-400 mb-4">1. Identity Module (Quản lý User & Gia
+                                    đình)</h3>
+
+                                <div class="grid lg:grid-cols-2 gap-8">
+                                    <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                        <div
+                                            class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-blue-300 font-bold">
+                                            User.js
+                                        </div>
+                                        <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const UserSchema = new Schema({
   // --- Auth Info ---
   phoneNumber: { 
@@ -655,13 +659,14 @@ const UserSchema = new Schema({
   lastActiveAt: Date,  // Để biết cụ còn online không
   isDeleted: { type: Boolean, default: false } // Soft delete
 }, { timestamps: true });</pre>
-                </div>
+                                    </div>
 
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-blue-300 font-bold">
-                        Family.js
-                    </div>
-                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                                    <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                        <div
+                                            class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-blue-300 font-bold">
+                                            Family.js
+                                        </div>
+                                        <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const FamilySchema = new Schema({
   name: { type: String, required: true }, // "Gia đình Ông Ba"
   
@@ -688,20 +693,23 @@ const FamilySchema = new Schema({
     maxMembers: { type: Number, default: 5 }
   }
 }, { timestamps: true });</pre>
-                </div>
-            </div>
-        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="pl-6 border-l-2 border-green-600">
-            <h3 class="text-xl font-bold text-green-400 mb-4">2. Medical Module (Thuốc & Lịch trình)</h3>
-            <p class="text-sm text-slate-500 mb-4">Logic xử lý lịch uống thuốc lặp lại (Recurrence) và kho thuốc (Inventory).</p>
+                            <div class="pl-6 border-l-2 border-green-600">
+                                <h3 class="text-xl font-bold text-green-400 mb-4">2. Medical Module (Thuốc & Lịch trình)
+                                </h3>
+                                <p class="text-sm text-slate-500 mb-4">Logic xử lý lịch uống thuốc lặp lại (Recurrence)
+                                    và kho thuốc (Inventory).</p>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
-                        Medication.js (Kho Thuốc)
-                    </div>
-                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                                <div class="grid lg:grid-cols-2 gap-8">
+                                    <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                        <div
+                                            class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
+                                            Medication.js (Kho Thuốc)
+                                        </div>
+                                        <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const MedicationSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
   
@@ -727,13 +735,14 @@ const MedicationSchema = new Schema({
   doctorNote: String, // "Bác sĩ dặn uống nhiều nước"
   isActive: { type: Boolean, default: true }
 }, { timestamps: true });</pre>
-                </div>
+                                    </div>
 
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
-                        Schedule.js (Lịch Uống)
-                    </div>
-                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                                    <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                        <div
+                                            class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
+                                            Schedule.js (Lịch Uống)
+                                        </div>
+                                        <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const ScheduleSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
   medicationId: { type: Schema.Types.ObjectId, ref: 'Medication' },
@@ -763,13 +772,15 @@ const ScheduleSchema = new Schema({
   startDate: { type: Date, default: Date.now },
   endDate: Date // Uống đến khi nào thì dừng
 }, { timestamps: true });</pre>
-                </div>
+                                    </div>
 
-                <div class="md:col-span-2 bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
-                        ConsumptionLog.js (Lịch Sử)
-                    </div>
-                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                                    <div
+                                        class="md:col-span-2 bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                        <div
+                                            class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-green-300 font-bold">
+                                            ConsumptionLog.js (Lịch Sử)
+                                        </div>
+                                        <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const LogSchema = new Schema({
   scheduleId: { type: Schema.Types.ObjectId, ref: 'Schedule' },
   medicationId: { type: Schema.Types.ObjectId, ref: 'Medication' },
@@ -792,19 +803,22 @@ const LogSchema = new Schema({
 
 // Index quan trọng để vẽ biểu đồ nhanh
 LogSchema.index({ userId: 1, takenAt: -1 });</pre>
-                </div>
-            </div>
-        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="pl-6 border-l-2 border-purple-600">
-            <h3 class="text-xl font-bold text-purple-400 mb-4">3. AI Legacy Module (Ký Ức & RAG)</h3>
-            <p class="text-sm text-slate-500 mb-4">Lưu trữ Vector Embeddings để Chatbot có thể tìm kiếm ngữ nghĩa.</p>
+                            <div class="pl-6 border-l-2 border-purple-600">
+                                <h3 class="text-xl font-bold text-purple-400 mb-4">3. AI Legacy Module (Ký Ức & RAG)
+                                </h3>
+                                <p class="text-sm text-slate-500 mb-4">Lưu trữ Vector Embeddings để Chatbot có thể tìm
+                                    kiếm ngữ nghĩa.</p>
 
-            <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-purple-300 font-bold">
-                    Memory.js (Di Sản Số)
-                </div>
-                <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                    <div
+                                        class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-purple-300 font-bold">
+                                        Memory.js (Di Sản Số)
+                                    </div>
+                                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const MemorySchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
   
@@ -835,18 +849,19 @@ const MemorySchema = new Schema({
   
   recordedAt: { type: Date, default: Date.now }
 }, { timestamps: true });</pre>
-            </div>
-        </div>
+                                </div>
+                            </div>
 
-        <div class="pl-6 border-l-2 border-red-600">
-            <h3 class="text-xl font-bold text-red-400 mb-4">4. System & Notifications</h3>
-            
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-red-300 font-bold">
-                        Notification.js
-                    </div>
-                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                            <div class="pl-6 border-l-2 border-red-600">
+                                <h3 class="text-xl font-bold text-red-400 mb-4">4. System & Notifications</h3>
+
+                                <div class="grid lg:grid-cols-2 gap-8">
+                                    <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                        <div
+                                            class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-red-300 font-bold">
+                                            Notification.js
+                                        </div>
+                                        <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const NotificationSchema = new Schema({
   recipientId: { type: Schema.Types.ObjectId, ref: 'User' },
   
@@ -862,13 +877,14 @@ const NotificationSchema = new Schema({
   isRead: { type: Boolean, default: false },
   data: Object // Payload để navigate (VD: { medicationId: '123' })
 }, { timestamps: true });</pre>
-                </div>
-                
-                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-                    <div class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-red-300 font-bold">
-                        SOSAlert.js
-                    </div>
-                    <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
+                                    </div>
+
+                                    <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                        <div
+                                            class="bg-slate-950 p-3 border-b border-slate-800 font-mono text-xs text-red-300 font-bold">
+                                            SOSAlert.js
+                                        </div>
+                                        <pre class="p-4 text-xs text-slate-300 font-mono overflow-x-auto leading-5">
 const SOSSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User' },
   
@@ -890,455 +906,598 @@ const SOSSchema = new Schema({
   resolvedBy: { type: Schema.Types.ObjectId, ref: 'User' },
   resolvedAt: Date
 }, { timestamps: true });</pre>
-                </div>
-            </div>
-        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-    </div>
-</section>
+                        </div>
+                    </section>
                     <!-- //Cautructhumuc -->
                     <section id="folder-structure" class="max-w-5xl mx-auto mb-20 border-t border-slate-800 pt-12">
                         <h2 class="text-3xl font-bold text-white mb-6">4. Cấu trúc thư mục (Folder Structure)</h2>
 
                     </section>
 
-                  <section id="api-list" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
-    
-    <div class="mb-10">
-        <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
-            <span class="bg-indigo-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-white">5.0</span>
-            Danh sách API (Backend Endpoints)
-        </h2>
-        <p class="text-slate-400 text-lg">
-            Base URL: <code class="bg-slate-800 px-2 py-1 rounded text-green-400">https://api.silverlink.ai/v1</code>
-            <br>Authentication: <code class="bg-slate-800 px-2 py-1 rounded text-yellow-400">Bearer {JWT_TOKEN}</code>
-        </p>
-    </div>
+                    <section id="api-list" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
 
-    <div class="space-y-12">
-
-        <div class="bg-slate-900 rounded-xl border border-indigo-500/30 overflow-hidden">
-            <div class="bg-slate-950 p-4 border-b border-indigo-500/30 flex justify-between items-center">
-                <h3 class="text-indigo-400 font-bold text-lg">1. AI Services (Vision & Voice)</h3>
-                <span class="text-xs bg-indigo-900 text-indigo-300 px-2 py-1 rounded">High Latency</span>
-            </div>
-            <table class="w-full text-left text-sm text-slate-400">
-                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
-                    <tr>
-                        <th class="p-4 w-24">Method</th>
-                        <th class="p-4 w-64">Endpoint</th>
-                        <th class="p-4">Chức năng & Payload</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-800">
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/ai/scan-rx</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Quét Đơn Thuốc (OCR)</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request (Multipart): { image: File }<br>
-                                🡨 Response: { medicines: [{ name: "Panadol", dosage: "1", time: ["sáng"] }] }
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/ai/scan-food</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Quét Món Ăn (Nutrition)</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request (Multipart): { image: File }<br>
-                                🡨 Response: { calories: 450, warnings: ["Mặn"], advice: "Uống thêm nước" }
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/ai/biographer/upload</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Upload Ghi Âm Hồi Ký</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request (Multipart): { audio: File, topic: "Tuổi thơ" }<br>
-                                🡨 Response: { memoryId: "123", status: "processing" }
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/ai/chat-legacy</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Chat với Ký Ức (RAG)</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request: { query: "Bà thích ăn gì?", contextId: "user_123" }<br>
-                                🡨 Response: { answer: "Bà thích canh cua...", sources: ["memory_id_1"] }
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="bg-slate-900 rounded-xl border border-green-500/30 overflow-hidden mt-8">
-            <div class="bg-slate-950 p-4 border-b border-green-500/30 flex justify-between items-center">
-                <h3 class="text-green-400 font-bold text-lg">2. Medication & Schedule</h3>
-                <span class="text-xs bg-green-900 text-green-300 px-2 py-1 rounded">Real-time Critical</span>
-            </div>
-            <table class="w-full text-left text-sm text-slate-400">
-                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
-                    <tr>
-                        <th class="p-4 w-24">Method</th>
-                        <th class="p-4 w-64">Endpoint</th>
-                        <th class="p-4">Chức năng & Payload</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-800">
-                    <tr>
-                        <td class="p-4"><span class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">GET</span></td>
-                        <td class="p-4 font-mono text-white">/schedules/today</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Lấy lịch uống thuốc hôm nay</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Query: ?userId=123 (Dành cho máy Kiosk)<br>
-                                🡨 Response: [ { time: "08:00", medName: "Panadol", status: "pending" } ]
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/medications</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Thêm thuốc mới (Inventory)</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request: { name: "Insulin", totalStock: 20, image: "url" }
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/schedules</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Tạo lịch nhắc nhở</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request: { medId: "123", time: "08:00", recurrence: "daily" }
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/logs/consume</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Xác nhận đã uống (Nút bấm Kiosk)</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request: { scheduleId: "abc", status: "taken", takenAt: "timestamp" }<br>
-                                🡨 Note: API này sẽ tự động trừ kho thuốc (Stock - 1).
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="bg-slate-900 rounded-xl border border-blue-500/30 overflow-hidden mt-8">
-            <div class="bg-slate-950 p-4 border-b border-blue-500/30 flex justify-between items-center">
-                <h3 class="text-blue-400 font-bold text-lg">3. Auth & Family Management</h3>
-            </div>
-            <table class="w-full text-left text-sm text-slate-400">
-                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
-                    <tr>
-                        <th class="p-4 w-24">Method</th>
-                        <th class="p-4 w-64">Endpoint</th>
-                        <th class="p-4">Chức năng & Payload</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-800">
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/auth/login-manager</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Đăng nhập Người thân</strong>
-                            <div class="text-xs font-mono text-slate-500">➔ Request: { email, password }</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/auth/login-qr</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Đăng nhập Kiosk (QR)</strong>
-                            <div class="text-xs font-mono text-slate-500">➔ Request: { qrToken: "xyz..." }</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">GET</span></td>
-                        <td class="p-4 font-mono text-white">/family/dashboard-stats</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Lấy dữ liệu biểu đồ Dashboard</strong>
-                            <div class="text-xs font-mono text-slate-500">🡨 Response: { adherenceRate: 85, lastActive: "5 mins ago" }</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="bg-slate-900 rounded-xl border border-red-500/30 overflow-hidden mt-8">
-            <div class="bg-slate-950 p-4 border-b border-red-500/30 flex justify-between items-center">
-                <h3 class="text-red-400 font-bold text-lg">4. System & SOS Alerts</h3>
-            </div>
-            <table class="w-full text-left text-sm text-slate-400">
-                <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
-                    <tr>
-                        <th class="p-4 w-24">Method</th>
-                        <th class="p-4 w-64">Endpoint</th>
-                        <th class="p-4">Chức năng & Payload</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-800">
-                    <tr>
-                        <td class="p-4"><span class="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span></td>
-                        <td class="p-4 font-mono text-white">/sos/trigger</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Kích hoạt Báo động đỏ</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request: { location: { lat, lng }, audioContext: "url" }<br>
-                                🡨 Note: Kích hoạt Socket.io bắn noti tới toàn bộ Family Member.
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4"><span class="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold">PUT</span></td>
-                        <td class="p-4 font-mono text-white">/sos/:id/resolve</td>
-                        <td class="p-4">
-                            <strong class="block text-white mb-1">Đánh dấu đã xử lý SOS</strong>
-                            <div class="text-xs font-mono text-slate-500">
-                                ➔ Request: { note: "Đã gọi điện, bà ổn." }
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-    <section id="tech-stack" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
-    
-    <div class="mb-10">
-        <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
-            <span class="bg-cyan-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-white">6.0</span>
-            Công nghệ & Kiến trúc (Technology Stack)
-        </h2>
-        <p class="text-slate-400 text-lg">
-            Hệ thống được xây dựng trên nền tảng <strong>MERN Stack (MongoDB - Express - React - Node)</strong> kết hợp với các <strong>AI Service</strong> tiên tiến nhất hiện nay.
-        </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-
-        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
-            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
-                <span class="text-3xl">⚛️</span>
-                <div>
-                    <h3 class="text-blue-400 font-bold text-lg">6.1. Frontend (Client Side)</h3>
-                    <p class="text-xs text-slate-500">React Ecosystem</p>
-                </div>
-            </div>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <div class="w-1 bg-blue-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Core Framework</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            ReactJS (Vite) + TypeScript
+                        <div class="mb-10">
+                            <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
+                                <span
+                                    class="bg-indigo-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-white">5.0</span>
+                                Danh sách API (Backend Endpoints)
+                            </h2>
+                            <p class="text-slate-400 text-lg">
+                                Base URL: <code
+                                    class="bg-slate-800 px-2 py-1 rounded text-green-400">https://api.silverlink.ai/v1</code>
+                                <br>Authentication: <code
+                                    class="bg-slate-800 px-2 py-1 rounded text-yellow-400">Bearer {JWT_TOKEN}</code>
+                            </p>
                         </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Tốc độ build nhanh (Vite), Type safety (TS) để tránh lỗi runtime.</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-cyan-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Styling (Giao diện)</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            Tailwind CSS v4 + Shadcn/UI
-                        </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Phát triển UI cực nhanh, Shadcn cung cấp các component đẹp (Dialog, Card) cho trang Manager.</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-yellow-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">State Management</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            Zustand
-                        </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Nhẹ hơn Redux rất nhiều (1KB), phù hợp để quản lý trạng thái đơn giản như User Session, Cart.</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-purple-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">PWA (Progressive Web App)</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            vite-plugin-pwa
-                        </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Bắt buộc để cài đặt Web lên máy tính bảng của người già như một App (Full screen, Offline mode).</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
-            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
-                <span class="text-3xl">🟢</span>
-                <div>
-                    <h3 class="text-green-400 font-bold text-lg">6.2. Backend (Server Side)</h3>
-                    <p class="text-xs text-slate-500">Node.js Ecosystem</p>
-                </div>
-            </div>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <div class="w-1 bg-green-600 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Runtime & Framework</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            Node.js + Express.js
-                        </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Non-blocking I/O, xử lý hàng nghìn request đồng thời từ các thiết bị IoT/Kiosk.</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-red-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Real-time Communication</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            Socket.io
-                        </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Cần thiết cho tính năng SOS và đồng bộ trạng thái uống thuốc tức thì (Client <-> Server).</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-orange-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Task Scheduling</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            node-cron
-                        </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lý do: Quét database mỗi phút để tìm lịch uống thuốc và gửi thông báo.</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-blue-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Security</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">
-                            JWT, Bcrypt, Helmet, Cors
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                        <div class="space-y-12">
 
-        <div class="bg-slate-900 rounded-2xl border border-indigo-500/30 p-6 md:col-span-2">
-            <div class="flex items-center gap-3 mb-4 border-b border-indigo-500/30 pb-3">
-                <span class="text-3xl">🧠</span>
-                <div>
-                    <h3 class="text-indigo-400 font-bold text-lg">6.3. AI Core (Artificial Intelligence)</h3>
-                    <p class="text-xs text-slate-500">Tích hợp các Model tiên tiến nhất (API-based)</p>
-                </div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <strong class="text-white text-sm block mb-1">1. Computer Vision (Thị giác)</strong>
-                    <div class="text-xs text-green-400 font-mono mb-2">Model: Gemini 1.5 Flash</div>
-                    <p class="text-[11px] text-slate-400">
-                        Sử dụng để OCR đơn thuốc và nhận diện món ăn.
-                        <br><strong>Lý do:</strong> Gemini Flash rẻ hơn GPT-4o gấp 10 lần nhưng tốc độ xử lý ảnh cực nhanh (< 2s).
-                    </p>
-                </div>
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <strong class="text-white text-sm block mb-1">2. Speech-to-Text (Giọng nói)</strong>
-                    <div class="text-xs text-green-400 font-mono mb-2">Model: OpenAI Whisper-1</div>
-                    <p class="text-[11px] text-slate-400">
-                        Chuyển đổi file ghi âm hồi ký sang văn bản.
-                        <br><strong>Lý do:</strong> Hỗ trợ tiếng Việt tốt nhất hiện nay, nhận diện được cả dấu câu và ngữ điệu vùng miền.
-                    </p>
-                </div>
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <strong class="text-white text-sm block mb-1">3. LLM & Chat (Ngôn ngữ)</strong>
-                    <div class="text-xs text-green-400 font-mono mb-2">Model: Gemini 1.5 Pro + RAG</div>
-                    <p class="text-[11px] text-slate-400">
-                        Biên tập hồi ký và Chatbot trả lời câu hỏi.
-                        <br><strong>Lý do:</strong> Context window lớn (1M tokens) giúp AI nhớ được nhiều ký ức của người già hơn.
-                    </p>
-                </div>
-            </div>
-        </div>
+                            <div class="bg-slate-900 rounded-xl border border-indigo-500/30 overflow-hidden">
+                                <div
+                                    class="bg-slate-950 p-4 border-b border-indigo-500/30 flex justify-between items-center">
+                                    <h3 class="text-indigo-400 font-bold text-lg">1. AI Services (Vision & Voice)</h3>
+                                    <span class="text-xs bg-indigo-900 text-indigo-300 px-2 py-1 rounded">High
+                                        Latency</span>
+                                </div>
+                                <table class="w-full text-left text-sm text-slate-400">
+                                    <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                                        <tr>
+                                            <th class="p-4 w-24">Method</th>
+                                            <th class="p-4 w-64">Endpoint</th>
+                                            <th class="p-4">Chức năng & Payload</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-800">
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/ai/scan-rx</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Quét Đơn Thuốc (OCR)</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request (Multipart): { image: File }<br>
+                                                    🡨 Response: { medicines: [{ name: "Panadol", dosage: "1", time:
+                                                    ["sáng"] }] }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/ai/scan-food</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Quét Món Ăn (Nutrition)</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request (Multipart): { image: File }<br>
+                                                    🡨 Response: { calories: 450, warnings: ["Mặn"], advice: "Uống thêm
+                                                    nước" }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/ai/biographer/upload</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Upload Ghi Âm Hồi Ký</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request (Multipart): { audio: File, topic: "Tuổi thơ" }<br>
+                                                    🡨 Response: { memoryId: "123", status: "processing" }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/ai/chat-legacy</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Chat với Ký Ức (RAG)</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request: { query: "Bà thích ăn gì?", contextId: "user_123" }<br>
+                                                    🡨 Response: { answer: "Bà thích canh cua...", sources:
+                                                    ["memory_id_1"] }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
-            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
-                <span class="text-3xl">💾</span>
-                <div>
-                    <h3 class="text-yellow-400 font-bold text-lg">6.4. Database & Storage</h3>
-                </div>
-            </div>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <div class="w-1 bg-green-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Primary DB</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">MongoDB Atlas</div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lưu User, Lịch uống thuốc. Dạng NoSQL phù hợp với JSON trả về từ AI.</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-purple-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">Vector DB (Cho AI)</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">MongoDB Atlas Vector Search</div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lưu các vector embeddings của ký ức để thực hiện tìm kiếm ngữ nghĩa (Semantic Search).</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <div class="w-1 bg-orange-500 rounded"></div>
-                    <div class="flex-1">
-                        <strong class="text-white text-sm block">File Storage</strong>
-                        <div class="text-xs text-slate-400 font-mono mt-1">AWS S3 / Cloudinary</div>
-                        <p class="text-[10px] text-slate-500 mt-1">Lưu trữ file ghi âm (.webm) và ảnh chụp (.jpg) lâu dài.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                            <div class="bg-slate-900 rounded-xl border border-green-500/30 overflow-hidden mt-8">
+                                <div
+                                    class="bg-slate-950 p-4 border-b border-green-500/30 flex justify-between items-center">
+                                    <h3 class="text-green-400 font-bold text-lg">2. Medication & Schedule</h3>
+                                    <span class="text-xs bg-green-900 text-green-300 px-2 py-1 rounded">Real-time
+                                        Critical</span>
+                                </div>
+                                <table class="w-full text-left text-sm text-slate-400">
+                                    <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                                        <tr>
+                                            <th class="p-4 w-24">Method</th>
+                                            <th class="p-4 w-64">Endpoint</th>
+                                            <th class="p-4">Chức năng & Payload</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-800">
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">GET</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/schedules/today</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Lấy lịch uống thuốc hôm
+                                                    nay</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Query: ?userId=123 (Dành cho máy Kiosk)<br>
+                                                    🡨 Response: [ { time: "08:00", medName: "Panadol", status:
+                                                    "pending" } ]
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/medications</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Thêm thuốc mới
+                                                    (Inventory)</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request: { name: "Insulin", totalStock: 20, image: "url" }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/schedules</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Tạo lịch nhắc nhở</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request: { medId: "123", time: "08:00", recurrence: "daily" }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/logs/consume</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Xác nhận đã uống (Nút bấm
+                                                    Kiosk)</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request: { scheduleId: "abc", status: "taken", takenAt:
+                                                    "timestamp" }<br>
+                                                    🡨 Note: API này sẽ tự động trừ kho thuốc (Stock - 1).
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-        <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
-            <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
-                <span class="text-3xl">🚀</span>
-                <div>
-                    <h3 class="text-red-400 font-bold text-lg">6.5. DevOps & Tools</h3>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-slate-950 p-3 rounded border border-slate-800">
-                    <div class="text-[10px] text-slate-500 uppercase font-bold">Deploy Frontend</div>
-                    <div class="text-white font-bold">Vercel</div>
-                </div>
-                <div class="bg-slate-950 p-3 rounded border border-slate-800">
-                    <div class="text-[10px] text-slate-500 uppercase font-bold">Deploy Backend</div>
-                    <div class="text-white font-bold">Render / Railway</div>
-                </div>
-                <div class="bg-slate-950 p-3 rounded border border-slate-800">
-                    <div class="text-[10px] text-slate-500 uppercase font-bold">CI/CD</div>
-                    <div class="text-white font-bold">GitHub Actions</div>
-                </div>
-                <div class="bg-slate-950 p-3 rounded border border-slate-800">
-                    <div class="text-[10px] text-slate-500 uppercase font-bold">Testing</div>
-                    <div class="text-white font-bold">Postman</div>
-                </div>
-            </div>
-        </div>
+                            <div class="bg-slate-900 rounded-xl border border-blue-500/30 overflow-hidden mt-8">
+                                <div
+                                    class="bg-slate-950 p-4 border-b border-blue-500/30 flex justify-between items-center">
+                                    <h3 class="text-blue-400 font-bold text-lg">3. Auth & Family Management</h3>
+                                </div>
+                                <table class="w-full text-left text-sm text-slate-400">
+                                    <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                                        <tr>
+                                            <th class="p-4 w-24">Method</th>
+                                            <th class="p-4 w-64">Endpoint</th>
+                                            <th class="p-4">Chức năng & Payload</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-800">
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/auth/login-manager</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Đăng nhập Người thân</strong>
+                                                <div class="text-xs font-mono text-slate-500">➔ Request: { email,
+                                                    password }</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/auth/login-qr</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Đăng nhập Kiosk (QR)</strong>
+                                                <div class="text-xs font-mono text-slate-500">➔ Request: { qrToken:
+                                                    "xyz..." }</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">GET</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/family/dashboard-stats</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Lấy dữ liệu biểu đồ
+                                                    Dashboard</strong>
+                                                <div class="text-xs font-mono text-slate-500">🡨 Response: {
+                                                    adherenceRate: 85, lastActive: "5 mins ago" }</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-    </div>
-</section>
-</section>
+                            <div class="bg-slate-900 rounded-xl border border-red-500/30 overflow-hidden mt-8">
+                                <div
+                                    class="bg-slate-950 p-4 border-b border-red-500/30 flex justify-between items-center">
+                                    <h3 class="text-red-400 font-bold text-lg">4. System & SOS Alerts</h3>
+                                </div>
+                                <table class="w-full text-left text-sm text-slate-400">
+                                    <thead class="bg-slate-800 text-slate-200 font-bold uppercase text-xs">
+                                        <tr>
+                                            <th class="p-4 w-24">Method</th>
+                                            <th class="p-4 w-64">Endpoint</th>
+                                            <th class="p-4">Chức năng & Payload</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-800">
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/sos/trigger</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Kích hoạt Báo động đỏ</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request: { location: { lat, lng }, audioContext: "url" }<br>
+                                                    🡨 Note: Kích hoạt Socket.io bắn noti tới toàn bộ Family Member.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4"><span
+                                                    class="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold">PUT</span>
+                                            </td>
+                                            <td class="p-4 font-mono text-white">/sos/:id/resolve</td>
+                                            <td class="p-4">
+                                                <strong class="block text-white mb-1">Đánh dấu đã xử lý SOS</strong>
+                                                <div class="text-xs font-mono text-slate-500">
+                                                    ➔ Request: { note: "Đã gọi điện, bà ổn." }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <section id="tech-stack" class="max-w-6xl mx-auto mb-20 pt-12 border-t border-slate-800">
+
+                            <div class="mb-10">
+                                <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
+                                    <span
+                                        class="bg-cyan-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm text-white">6.0</span>
+                                    Công nghệ & Kiến trúc (Technology Stack)
+                                </h2>
+                                <p class="text-slate-400 text-lg">
+                                    Hệ thống được xây dựng trên nền tảng <strong>MERN Stack (MongoDB - Express - React -
+                                        Node)</strong> kết hợp với các <strong>AI Service</strong> tiên tiến nhất hiện
+                                    nay.
+                                </p>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+
+                                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                                    <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                                        <span class="text-3xl">⚛️</span>
+                                        <div>
+                                            <h3 class="text-blue-400 font-bold text-lg">6.1. Frontend (Client Side)</h3>
+                                            <p class="text-xs text-slate-500">React Ecosystem</p>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-4">
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-blue-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Core Framework</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    ReactJS (Vite) + TypeScript
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lý do: Tốc độ build nhanh
+                                                    (Vite), Type safety (TS) để tránh lỗi runtime.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-cyan-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Styling (Giao diện)</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    Tailwind CSS v4 + Shadcn/UI
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lý do: Phát triển UI cực
+                                                    nhanh, Shadcn cung cấp các component đẹp (Dialog, Card) cho trang
+                                                    Manager.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-yellow-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">State Management</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    Zustand
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lý do: Nhẹ hơn Redux rất
+                                                    nhiều (1KB), phù hợp để quản lý trạng thái đơn giản như User
+                                                    Session, Cart.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-purple-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">PWA (Progressive Web
+                                                    App)</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    vite-plugin-pwa
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lý do: Bắt buộc để cài đặt
+                                                    Web lên máy tính bảng của người già như một App (Full screen,
+                                                    Offline mode).</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                                    <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                                        <span class="text-3xl">🟢</span>
+                                        <div>
+                                            <h3 class="text-green-400 font-bold text-lg">6.2. Backend (Server Side)</h3>
+                                            <p class="text-xs text-slate-500">Node.js Ecosystem</p>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-4">
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-green-600 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Runtime & Framework</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    Node.js + Express.js
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lý do: Non-blocking I/O, xử
+                                                    lý hàng nghìn request đồng thời từ các thiết bị IoT/Kiosk.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-red-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Real-time
+                                                    Communication</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    Socket.io
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lý do: Cần thiết cho tính
+                                                    năng SOS và đồng bộ trạng thái uống thuốc tức thì (Client <->
+                                                        Server).</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-orange-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Task Scheduling</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    node-cron
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lý do: Quét database mỗi phút
+                                                    để tìm lịch uống thuốc và gửi thông báo.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-blue-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Security</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">
+                                                    JWT, Bcrypt, Helmet, Cors
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-slate-900 rounded-2xl border border-indigo-500/30 p-6 md:col-span-2">
+                                    <div class="flex items-center gap-3 mb-4 border-b border-indigo-500/30 pb-3">
+                                        <span class="text-3xl">🧠</span>
+                                        <div>
+                                            <h3 class="text-indigo-400 font-bold text-lg">6.3. AI Core (Artificial
+                                                Intelligence)</h3>
+                                            <p class="text-xs text-slate-500">Tích hợp các Model tiên tiến nhất
+                                                (API-based)</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid md:grid-cols-3 gap-6">
+                                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                            <strong class="text-white text-sm block mb-1">1. Computer Vision (Thị
+                                                giác)</strong>
+                                            <div class="text-xs text-green-400 font-mono mb-2">Model: Gemini 1.5 Flash
+                                            </div>
+                                            <p class="text-[11px] text-slate-400">
+                                                Sử dụng để OCR đơn thuốc và nhận diện món ăn.
+                                                <br><strong>Lý do:</strong> Gemini Flash rẻ hơn GPT-4o gấp 10 lần nhưng
+                                                tốc độ xử lý ảnh cực nhanh (< 2s). </p>
+                                        </div>
+                                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                            <strong class="text-white text-sm block mb-1">2. Speech-to-Text (Giọng
+                                                nói)</strong>
+                                            <div class="text-xs text-green-400 font-mono mb-2">Model: OpenAI Whisper-1
+                                            </div>
+                                            <p class="text-[11px] text-slate-400">
+                                                Chuyển đổi file ghi âm hồi ký sang văn bản.
+                                                <br><strong>Lý do:</strong> Hỗ trợ tiếng Việt tốt nhất hiện nay, nhận
+                                                diện được cả dấu câu và ngữ điệu vùng miền.
+                                            </p>
+                                        </div>
+                                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                            <strong class="text-white text-sm block mb-1">3. LLM & Chat (Ngôn
+                                                ngữ)</strong>
+                                            <div class="text-xs text-green-400 font-mono mb-2">Model: Gemini 1.5 Pro +
+                                                RAG</div>
+                                            <p class="text-[11px] text-slate-400">
+                                                Biên tập hồi ký và Chatbot trả lời câu hỏi.
+                                                <br><strong>Lý do:</strong> Context window lớn (1M tokens) giúp AI nhớ
+                                                được nhiều ký ức của người già hơn.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                                    <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                                        <span class="text-3xl">💾</span>
+                                        <div>
+                                            <h3 class="text-yellow-400 font-bold text-lg">6.4. Database & Storage</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-4">
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-green-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Primary DB</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">MongoDB Atlas</div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lưu User, Lịch uống thuốc.
+                                                    Dạng NoSQL phù hợp với JSON trả về từ AI.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-purple-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">Vector DB (Cho AI)</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">MongoDB Atlas Vector
+                                                    Search</div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lưu các vector embeddings của
+                                                    ký ức để thực hiện tìm kiếm ngữ nghĩa (Semantic Search).</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <div class="w-1 bg-orange-500 rounded"></div>
+                                            <div class="flex-1">
+                                                <strong class="text-white text-sm block">File Storage</strong>
+                                                <div class="text-xs text-slate-400 font-mono mt-1">AWS S3 / Cloudinary
+                                                </div>
+                                                <p class="text-[10px] text-slate-500 mt-1">Lưu trữ file ghi âm (.webm)
+                                                    và ảnh chụp (.jpg) lâu dài.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                                    <div class="flex items-center gap-3 mb-4 border-b border-slate-800 pb-3">
+                                        <span class="text-3xl">🚀</span>
+                                        <div>
+                                            <h3 class="text-red-400 font-bold text-lg">6.5. DevOps & Tools</h3>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                                            <div class="text-[10px] text-slate-500 uppercase font-bold">Deploy Frontend
+                                            </div>
+                                            <div class="text-white font-bold">Vercel</div>
+                                        </div>
+                                        <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                                            <div class="text-[10px] text-slate-500 uppercase font-bold">Deploy Backend
+                                            </div>
+                                            <div class="text-white font-bold">Render / Railway</div>
+                                        </div>
+                                        <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                                            <div class="text-[10px] text-slate-500 uppercase font-bold">CI/CD</div>
+                                            <div class="text-white font-bold">GitHub Actions</div>
+                                        </div>
+                                        <div class="bg-slate-950 p-3 rounded border border-slate-800">
+                                            <div class="text-[10px] text-slate-500 uppercase font-bold">Testing</div>
+                                            <div class="text-white font-bold">Postman</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+                    </section>
 
     </main>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Logic Mobile Menu
+            const btn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobile-overlay');
+            const links = document.querySelectorAll('.sidebar-link');
+
+            function toggleMenu() {
+                const isClosed = sidebar.classList.contains('-translate-x-full');
+                if (isClosed) {
+                    // Mở
+                    sidebar.classList.remove('-translate-x-full');
+                    overlay.classList.remove('hidden');
+                    setTimeout(() => overlay.classList.remove('opacity-0'), 10); // Fade in
+                } else {
+                    // Đóng
+                    sidebar.classList.add('-translate-x-full');
+                    overlay.classList.add('opacity-0');
+                    setTimeout(() => overlay.classList.add('hidden'), 300); // Wait animation
+                }
+            }
+
+            // Gán sự kiện
+            btn.addEventListener('click', toggleMenu);
+            closeBtn.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            // Bấm vào link thì tự đóng menu trên mobile
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) { // Chỉ đóng nếu là mobile (md breakpoint)
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // 2. Logic Active Menu (Giữ nguyên tối ưu cũ)
+            const observerOptions = { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.sidebar-link').forEach(link => {
+                            link.classList.remove('bg-slate-800', 'text-white', 'border-r-4', 'border-blue-500');
+                            link.classList.add('text-slate-400');
+                        });
+                        const id = entry.target.getAttribute('id');
+                        // Tìm link chính xác (ưu tiên href khớp ID)
+                        const activeLink = document.querySelector(`a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.remove('text-slate-400');
+                            activeLink.classList.add('bg-slate-800', 'text-white', 'border-r-4', 'border-blue-500');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 
 </html>
